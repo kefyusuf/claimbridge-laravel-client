@@ -1,0 +1,29 @@
+cff-version: 1.2.0
+title: claimbridge-laravel-client
+message: >-
+  If you use this software, please cite it using the
+  metadata from this file.
+type: software
+authors:
+  - name: KEF, Yusuf
+    email: kefyusuf@users.noreply.github.com
+repository-code: >-
+  https://github.com/kefyusuf/claimbridge-laravel-client
+url: >-
+  https://github.com/kefyusuf/claimbridge-laravel-client
+abstract: >-
+  Laravel-ready PHP client for the claimbridge MEDULA-compatible
+  claim flow. Loads the guide-verified spec bundle, validates
+  outgoing payloads against DVO/enum contracts client-side, and
+  returns sandbox-verbatim result contracts. No live SGK
+  connection and no real patient data.
+keywords:
+  - medula
+  - sgk
+  - healthcare
+  - claims
+  - laravel
+  - turkish-healthcare
+license: MIT
+version: v0.2.0
+date-released: "2026-11-19"

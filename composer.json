@@ -5,9 +5,13 @@
   "type": "library",
   "keywords": ["medula", "sgk", "healthcare", "claims", "laravel"],
   "require": {
-    "php": "^8.3"
+    "php": "^8.3",
+    "psr/log": "^3.0"
   },
   "require-dev": {
+    "laravel/pint": "^1.20",
+    "phpstan/phpstan": "^2.1",
+    "phpstan/phpstan-phpunit": "^2.1",
     "phpunit/phpunit": "^11.5"
   },
   "autoload": {
@@ -21,7 +25,15 @@
     }
   },
   "scripts": {
-    "test": "phpunit"
+    "test": "phpunit",
+    "stan": "phpstan analyse --no-progress",
+    "cs": "pint --test",
+    "cs:fix": "pint",
+    "check": [
+      "@cs",
+      "@stan",
+      "@test"
+    ]
   },
   "config": {
     "sort-packages": true
