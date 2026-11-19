@@ -10,23 +10,18 @@ namespace ClaimBridge\Medula\Client;
  */
 final class FakeTransport implements Transport
 {
-    /** @var array<string, list<array<string, mixed>>> */
+    /** @var array<string, array<string, mixed>|list<array<string, mixed>>> */
     private array $responses;
 
     /** @var list<array{methodId: string, payload: array<string, mixed>}> */
     private array $calls = [];
 
     /**
-     * @param array<string, array<string, mixed>|list<array<string, mixed>>> $responses
+     * @param  array<string, array<string, mixed>|list<array<string, mixed>>>  $responses
      */
     public function __construct(array $responses)
     {
-        $this->responses = [];
-        foreach ($responses as $methodId => $response) {
-            $this->responses[$methodId] = array_is_list($response)
-                ? $response
-                : [$response];
-        }
+        $this->responses = $responses;
     }
 
     public function call(string $methodId, array $payload): array
@@ -34,7 +29,10 @@ final class FakeTransport implements Transport
         $this->calls[] = ['methodId' => $methodId, 'payload' => $payload];
 
         $queue = $this->responses[$methodId] ?? [];
-        $next = array_shift($queue);
+        // A single response map is treated as a one-entry queue.
+        $list = array_is_list($queue) ? $queue : [$queue];
+        /** @var array<string, mixed>|null $next */
+        $next = array_shift($list);
 
         return $next ?? [
             'sonucKodu' => 'SANDBOX_1001',

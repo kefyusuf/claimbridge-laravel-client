@@ -12,12 +12,10 @@ use ClaimBridge\Medula\Spec\Bundle;
  */
 final class PayloadValidator
 {
-    public function __construct(private readonly Bundle $bundle)
-    {
-    }
+    public function __construct(private readonly Bundle $bundle) {}
 
     /**
-     * @param array<string, mixed> $payload
+     * @param  array<string, mixed>  $payload
      *
      * @throws PayloadValidationException
      */
@@ -28,8 +26,9 @@ final class PayloadValidator
             throw new \RuntimeException("unknown method: {$methodId}");
         }
 
-        $inputDvoId = $method['contract']['inputDvo'] ?? null;
-        if (!is_string($inputDvoId)) {
+        $contract = $method['contract'] ?? null;
+        $inputDvoId = is_array($contract) ? ($contract['inputDvo'] ?? null) : null;
+        if (! is_string($inputDvoId)) {
             return; // no input contract to validate against
         }
 
@@ -38,12 +37,25 @@ final class PayloadValidator
             return;
         }
 
-        foreach ($dvo['fields'] as $field) {
+        $fields = $dvo['fields'] ?? null;
+        if (! is_array($fields)) {
+            return;
+        }
+
+        foreach ($fields as $field) {
+            if (! is_array($field)) {
+                continue;
+            }
+
             if (($field['required'] ?? false) !== true) {
                 continue;
             }
 
-            $name = $field['name'];
+            $name = $field['name'] ?? null;
+            if (! is_string($name)) {
+                continue;
+            }
+
             if (array_key_exists($name, $payload) && $payload[$name] !== null) {
                 continue;
             }
