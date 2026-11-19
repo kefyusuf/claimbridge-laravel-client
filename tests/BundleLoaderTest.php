@@ -31,8 +31,10 @@ final class BundleLoaderTest extends TestCase
         $method = $bundle->methodById('medula.hastane.hasta-kabul.hasta-kabul');
 
         $this->assertNotNull($method);
-        $this->assertSame('ProvizyonGirisDVO', $method['contract']['inputDvo']);
-        $this->assertSame('ProvizyonCevapDVO', $method['contract']['outputDvo']);
+        $contract = $method['contract'] ?? null;
+        $this->assertIsArray($contract);
+        $this->assertSame('ProvizyonGirisDVO', $contract['inputDvo'] ?? null);
+        $this->assertSame('ProvizyonCevapDVO', $contract['outputDvo'] ?? null);
     }
 
     #[Test]
@@ -42,7 +44,11 @@ final class BundleLoaderTest extends TestCase
 
         $dvo = $bundle->dvoById('ProvizyonGirisDVO');
         $this->assertNotNull($dvo);
-        $this->assertSame('saglikTesisKodu', $dvo['fields'][0]['name']);
+        $fields = $dvo['fields'] ?? null;
+        $this->assertIsArray($fields);
+        $first = $fields[0] ?? null;
+        $this->assertIsArray($first);
+        $this->assertSame('saglikTesisKodu', $first['name'] ?? null);
 
         $this->assertNull($bundle->methodById('does.not.exist'));
         $this->assertNull($bundle->dvoById('NoSuchDVO'));
