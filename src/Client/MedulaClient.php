@@ -37,6 +37,7 @@ final class MedulaClient
      * @param  array<string, mixed>  $payload
      *
      * @throws PayloadValidationException
+     * @throws PayloadEnumException
      * @throws UnexpectedResultException
      */
     public function hastaKabul(array $payload): CallResult
@@ -50,6 +51,7 @@ final class MedulaClient
      * @param  array<string, mixed>  $payload
      *
      * @throws PayloadValidationException
+     * @throws PayloadEnumException
      * @throws UnexpectedResultException
      */
     public function hizmetKayit(array $payload): CallResult
@@ -63,6 +65,7 @@ final class MedulaClient
      * @param  array<string, mixed>  $payload
      *
      * @throws PayloadValidationException
+     * @throws PayloadEnumException
      * @throws UnexpectedResultException
      */
     public function faturaKayit(array $payload): CallResult
@@ -76,6 +79,7 @@ final class MedulaClient
      * @param  array<string, mixed>  $payload
      *
      * @throws PayloadValidationException
+     * @throws PayloadEnumException
      * @throws UnexpectedResultException
      */
     public function call(string $methodId, array $payload): CallResult
