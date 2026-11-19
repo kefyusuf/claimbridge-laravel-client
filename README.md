@@ -14,6 +14,9 @@ and returns sandbox-verbatim result contracts.
 
 ## Status
 
+**L4 (Laravel adapter)**: `ClaimBridgeServiceProvider` + publishable
+`config/claimbridge.php` + `ClaimBridge` facade — the thin shell on the
+stable framework-agnostic core, with auto-discovery. On top of
 **L3 (real transports)**: `SandboxHttpTransport` (PSR-18, session-aware) +
 `LoggingTransport` / `RetryTransport` decorators + a real end-to-end test
 running the full claim flow (admission → service → invoice → duplicate
@@ -28,6 +31,26 @@ On top of **L0 (contract layer)**: bundle loading, payload validation against
 DVO required fields, transport abstraction, fake transport with
 sandbox-verbatim fixtures, and the core client
 (hasta-kabul → hizmet-kayit → fatura-kayit).
+
+## Laravel usage
+
+```bash
+composer require kefyusuf/claimbridge-laravel-client
+php artisan vendor:publish --tag=claimbridge-config
+```
+
+```php
+// .env — point at the sandbox service (or leave the fake driver for demos)
+CLAIMBRIDGE_DRIVER=sandbox-http
+CLAIMBRIDGE_SANDBOX_URL=http://127.0.0.1:8123
+```
+
+```php
+use ClaimBridge;
+
+$result = ClaimBridge::hastaKabul([...]);   // sonucKodu / takipNo / ...
+$session = app('claimbridge.session');      // episode-scoped, carries identifiers
+```
 
 ## End-to-end against the sandbox
 

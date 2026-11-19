@@ -5,6 +5,25 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.5.0] — 2026-11-19
+
+### Added
+- **Laravel adapter** (the thin shell on the stable core, per the
+  four-layer architecture):
+  - `ClaimBridgeServiceProvider` — container bindings driven by
+    `config/claimbridge.php`: `claimbridge.bundle` (singleton),
+    `claimbridge.client` (singleton, driver-selected transport:
+    `fake` | `sandbox-http`), `claimbridge.session` (fresh per
+    resolution). Publishable config via `php artisan
+    vendor:publish --tag=claimbridge-config`.
+  - `ClaimBridge` facade over the client singleton
+    (`ClaimBridge::hastaKabul(...)`, `hizmetKayit(...)`,
+    `faturaKayit(...)`, `call(...)`).
+  - Auto-discovery via composer `extra.laravel` (provider + alias).
+- Adapter tested with `orchestra/testbench` (5 tests): singleton
+  semantics, default fake driver, facade proxying, sandbox-http driver
+  binding, per-resolution session factory.
+
 ## [0.4.0] — 2026-11-19
 
 ### Added

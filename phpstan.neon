@@ -3,6 +3,13 @@ parameters:
   paths:
     - src
     - tests
+  ignoreErrors:
+    # Testbench exposes the application as a nullable instance property;
+    # tests access it after the framework booted.
+    -
+      message: '#Cannot call method make\(\) on Illuminate\\Foundation\\Application\|null#'
+      path: tests/Laravel
+
 includes:
   - vendor/phpstan/phpstan-phpunit/extension.neon
   - vendor/phpstan/phpstan-phpunit/rules.neon
