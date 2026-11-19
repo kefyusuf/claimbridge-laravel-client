@@ -14,6 +14,10 @@ and returns sandbox-verbatim result contracts.
 
 ## Status
 
+**L3 (real transports)**: `SandboxHttpTransport` (PSR-18, session-aware) +
+`LoggingTransport` / `RetryTransport` decorators + a real end-to-end test
+running the full claim flow (admission → service → invoice → duplicate
+rejection) over HTTP against the sandbox service. On top of
 **L2 (contract completion)**: enum validation (23 guide-verified enums) and
 `ClaimSession` — the episode-scoped session that mirrors the sandbox's
 workflow semantics (identifier adoption + auto-injection). On top of
@@ -24,6 +28,25 @@ On top of **L0 (contract layer)**: bundle loading, payload validation against
 DVO required fields, transport abstraction, fake transport with
 sandbox-verbatim fixtures, and the core client
 (hasta-kabul → hizmet-kayit → fatura-kayit).
+
+## End-to-end against the sandbox
+
+Start the sandbox HTTP service (sandbox repo, node >= 22.18):
+
+```bash
+cd ../claimbridge-sandbox && pnpm serve        # 127.0.0.1:8123
+```
+
+Then run the client integration test against it:
+
+```bash
+docker run --rm -v "$(pwd -W)":/app -w /app \
+  -e SANDBOX_URL=http://host.docker.internal:8123 \
+  composer:2 vendor/bin/phpunit --filter SandboxIntegrationTest
+```
+
+CI runs the same flow as a dedicated e2e job (clones the sandbox, serves it
+on 8123, runs the integration test).
 
 ## Development (Docker)
 

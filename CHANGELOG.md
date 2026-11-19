@@ -5,6 +5,23 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.4.0] — 2026-11-19
+
+### Added
+- **`SandboxHttpTransport`** (PSR-18): session-aware HTTP transport for the
+  sandbox's session-based service (sandbox v0.5.0+) — lazily creates a
+  session, routes calls through `POST /sessions/:id/call`, wraps network/HTTP
+  failures in `TransportException` with the previous throwable. Ships with
+  `SandboxHttpTransport::discover()` (php-http/discovery) so consumers can
+  use any PSR-18 client without hard-coding one.
+- **`LoggingTransport`** (PSR-3 decorator) and **`RetryTransport`** (retries
+  transport failures for idempotent read/sorgu methods only — registration
+  and invoice submissions are never retried).
+- **Real end-to-end**: a dedicated e2e flow (admission → service → invoice →
+  duplicate rejection over HTTP, sandbox `SANDBOX_3001` verbatim) both locally
+  and as a CI job that clones the sandbox, serves it and runs the client
+  against it.
+
 ## [0.3.0] — 2026-11-19
 
 ### Added
