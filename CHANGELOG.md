@@ -5,6 +5,20 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.3.0] — 2026-11-19
+
+### Added
+- **Enum validation**: enum-bound fields (7 on `ProvizyonGirisDVO` alone; 23
+  enums in the bundle) are validated against the guide-verified code lists —
+  invalid values fail fast with `PayloadEnumException` (`fieldPath` + `enumId`)
+  before anything reaches the transport. Null values and dangling enumRefs are
+  skipped defensively.
+- **`ClaimSession`**: episode-scoped session mirroring the sandbox's workflow
+  semantics — successful results adopt their identifiers (takipNo,
+  hastaBasvuruNo, islemSiraNo, faturaTeslimNo, ...), later calls auto-inject
+  them into payloads for fields the method's input DVO declares, explicit
+  payload values win, and failing results never poison the session.
+
 ## [0.2.0] — 2026-11-19
 
 ### Added
