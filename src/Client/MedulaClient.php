@@ -6,11 +6,13 @@ namespace ClaimBridge\Medula\Client;
 
 use ClaimBridge\Medula\Spec\Bundle;
 use ClaimBridge\Medula\Spec\BundleLoader;
+use Psr\Log\LoggerInterface;
 
 /**
  * Typed client for the MEDULA-compatible claim flow. Validates payloads
- * against the guide-verified DVO contracts (client-side, fail-fast) and
- * routes calls through the configured transport.
+ * against the guide-verified DVO contracts (client-side, fail-fast),
+ * enforces the response contract, and routes calls through the
+ * configured transport.
  */
 final class MedulaClient
 {
@@ -19,11 +21,11 @@ final class MedulaClient
     public function __construct(
         private readonly Transport $transport,
         private readonly Bundle $bundle,
+        private readonly ?LoggerInterface $logger = null,
     ) {
         $this->validator = new PayloadValidator($bundle);
     }
 
-    /** @param array<string, mixed> $payload */
     public static function create(Transport $transport, string $bundlePath = __DIR__.'/../../resources/bundle.json'): self
     {
         return new self($transport, BundleLoader::load($bundlePath));
@@ -32,7 +34,10 @@ final class MedulaClient
     /**
      * Patient admission (hasta-kabul): provizyon girişi.
      *
-     * @param array<string, mixed> $payload
+     * @param  array<string, mixed>  $payload
+     *
+     * @throws PayloadValidationException
+     * @throws UnexpectedResultException
      */
     public function hastaKabul(array $payload): CallResult
     {
@@ -42,7 +47,10 @@ final class MedulaClient
     /**
      * Service registration (hizmet-kayit).
      *
-     * @param array<string, mixed> $payload
+     * @param  array<string, mixed>  $payload
+     *
+     * @throws PayloadValidationException
+     * @throws UnexpectedResultException
      */
     public function hizmetKayit(array $payload): CallResult
     {
@@ -52,7 +60,10 @@ final class MedulaClient
     /**
      * Invoice registration (fatura-kayit).
      *
-     * @param array<string, mixed> $payload
+     * @param  array<string, mixed>  $payload
+     *
+     * @throws PayloadValidationException
+     * @throws UnexpectedResultException
      */
     public function faturaKayit(array $payload): CallResult
     {
@@ -62,12 +73,22 @@ final class MedulaClient
     /**
      * Routes any spec-bundle method through validation + transport.
      *
-     * @param array<string, mixed> $payload
+     * @param  array<string, mixed>  $payload
+     *
+     * @throws PayloadValidationException
+     * @throws UnexpectedResultException
      */
     public function call(string $methodId, array $payload): CallResult
     {
         $this->validator->validate($methodId, $payload);
 
-        return CallResult::from($this->transport->call($methodId, $payload));
+        $result = CallResult::from($this->transport->call($methodId, $payload));
+
+        $this->logger?->info('claimbridge.call', [
+            'methodId' => $methodId,
+            'sonucKodu' => $result->sonucKodu,
+        ]);
+
+        return $result;
     }
 }

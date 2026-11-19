@@ -14,8 +14,7 @@ interface Transport
      * Sends a payload for a spec method and returns the raw response
      * contract (sonucKodu, sonucMesaji, ...).
      *
-     * @param array<string, mixed> $payload
-     *
+     * @param  array<string, mixed>  $payload
      * @return array<string, mixed>
      */
     public function call(string $methodId, array $payload): array;
