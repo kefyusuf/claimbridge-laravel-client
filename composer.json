@@ -1,0 +1,30 @@
+{
+  "name": "kefyusuf/claimbridge-laravel-client",
+  "description": "Laravel-ready PHP client for the claimbridge MEDULA-compatible claim flow — guide-verified contracts from claimbridge-medula-spec.",
+  "license": "MIT",
+  "type": "library",
+  "keywords": ["medula", "sgk", "healthcare", "claims", "laravel"],
+  "require": {
+    "php": "^8.3"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^11.5"
+  },
+  "autoload": {
+    "psr-4": {
+      "ClaimBridge\\Medula\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "ClaimBridge\\Medula\\Tests\\": "tests/"
+    }
+  },
+  "scripts": {
+    "test": "phpunit"
+  },
+  "config": {
+    "sort-packages": true
+  },
+  "minimum-stability": "stable"
+}
