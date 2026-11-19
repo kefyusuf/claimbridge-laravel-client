@@ -131,6 +131,20 @@ final class Bundle
     /**
      * @return array<string, mixed>|null
      */
+    public function enumById(string $id): ?array
+    {
+        foreach ($this->enums as $enum) {
+            if (($enum['id'] ?? null) === $id) {
+                return $enum;
+            }
+        }
+
+        return null;
+    }
+
+    /**
+     * @return array<string, mixed>|null
+     */
     public function methodById(string $id): ?array
     {
         foreach ($this->methods as $method) {

@@ -14,13 +14,16 @@ and returns sandbox-verbatim result contracts.
 
 ## Status
 
+**L2 (contract completion)**: enum validation (23 guide-verified enums) and
+`ClaimSession` — the episode-scoped session that mirrors the sandbox's
+workflow semantics (identifier adoption + auto-injection). On top of
 **L1 (core hardening)**: exception hierarchy (`ClaimBridgeException` marker —
 SANDBOX_* codes stay data, never exceptions), response contract enforcement,
-optional PSR-3 logging hook, PHPStan (max level) + Laravel Pint quality gates,
-governance files (SECURITY/CHANGELOG/CITATION). On top of
-**L0 (contract layer)**: bundle loading, payload validation against DVO
-required fields, transport abstraction, fake transport with sandbox-verbatim
-fixtures, and the core client (hasta-kabul → hizmet-kayit → fatura-kayit).
+optional PSR-3 logging hook, PHPStan (max level) + Laravel Pint quality gates.
+On top of **L0 (contract layer)**: bundle loading, payload validation against
+DVO required fields, transport abstraction, fake transport with
+sandbox-verbatim fixtures, and the core client
+(hasta-kabul → hizmet-kayit → fatura-kayit).
 
 ## Development (Docker)
 
