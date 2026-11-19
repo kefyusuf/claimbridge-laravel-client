@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace ClaimBridge\Medula\Tests;
 
-use ClaimBridge\Medula\Client\CallResult;
 use ClaimBridge\Medula\Client\FakeTransport;
 use ClaimBridge\Medula\Client\MedulaClient;
 use ClaimBridge\Medula\Client\PayloadValidationException;
@@ -37,11 +36,12 @@ final class MedulaClientTest extends TestCase
 
         $result = $client->hastaKabul($this->admissionPayload());
 
-        $this->assertInstanceOf(CallResult::class, $result);
         $this->assertSame('0000', $result->sonucKodu);
         $this->assertSame('SYNTHETIC_TAKIPNO_000001', $result->takipNo);
         $this->assertSame('SYNTHETIC_HASTABASVURUNO_000001', $result->hastaBasvuruNo);
-        $this->assertCount(1, $result->takipler);
+        $takipler = $result->takipler;
+        $this->assertIsArray($takipler);
+        $this->assertCount(1, $takipler);
     }
 
     #[Test]

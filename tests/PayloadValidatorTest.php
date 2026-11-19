@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace ClaimBridge\Medula\Tests;
 
-use ClaimBridge\Medula\Client\PayloadValidator;
 use ClaimBridge\Medula\Client\PayloadValidationException;
+use ClaimBridge\Medula\Client\PayloadValidator;
 use ClaimBridge\Medula\Spec\BundleLoader;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
