@@ -33,7 +33,10 @@
   },
   "autoload": {
     "psr-4": {
-      "ClaimBridge\\Medula\\": "src/"
+      "ClaimBridge\\Medula\\": [
+        "src/",
+        "generated/"
+      ]
     }
   },
   "autoload-dev": {
@@ -46,6 +49,7 @@
     "stan": "phpstan analyse --no-progress",
     "cs": "pint --test",
     "cs:fix": "pint",
+    "sync-dto": "node scripts/sync-dto.mjs",
     "check": [
       "@cs",
       "@stan",

@@ -5,6 +5,21 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.6.0] — 2026-11-21
+
+### Added
+- **Generated DTO package integration**: `scripts/sync-dto.mjs` fetches the
+  spec repository's generated PHP package (81 string-backed enums + 212
+  readonly DTO classes, guide 3.1.1) into `generated/` through the git
+  blobs API (fresh content, never CDN-stale; uses `GITHUB_TOKEN` /
+  `gh auth token` to avoid rate limits). PSR-4 autoload now maps
+  `ClaimBridge\Medula\` over both `src/` and `generated/`.
+- **DTO integration tests**: `fromArray()` enum coercion
+  (`TakipTipi::Normal` from `"N"`), unknown-code → null semantics,
+  `toArray()` round-trip back to codes, and a typed-payload flow through
+  `MedulaClient::hastaKabul()`.
+- CI: DTO sync + autoloader regeneration before every test and e2e run.
+
 ## [0.5.0] — 2026-11-19
 
 ### Added
