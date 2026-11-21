@@ -5,9 +5,22 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.7.0] — 2026-11-21
+
+### Added
+
+- **Generated rules integration** (works with spec v0.8.0): the synced
+  package now carries `ClaimBridge\Medula\Rules\<Domain>\` — one Laravel
+  rule class per input DVO — consumed directly via
+  `Validator::make($payload, ProvizyonGirisDVORules::rules())`.
+- **Rules integration tests** (5): valid payload passes, missing required
+  fields report through `failed()`, enum-bound fields reject codes outside
+  the guide's `in:` list, optional fields stay nullable.
+
 ## [0.6.0] — 2026-11-21
 
 ### Added
+
 - **Generated DTO package integration**: `scripts/sync-dto.mjs` fetches the
   spec repository's generated PHP package (81 string-backed enums + 212
   readonly DTO classes, guide 3.1.1) into `generated/` through the git
@@ -23,6 +36,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [0.5.0] — 2026-11-19
 
 ### Added
+
 - **Laravel adapter** (the thin shell on the stable core, per the
   four-layer architecture):
   - `ClaimBridgeServiceProvider` — container bindings driven by
@@ -30,7 +44,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
     `claimbridge.client` (singleton, driver-selected transport:
     `fake` | `sandbox-http`), `claimbridge.session` (fresh per
     resolution). Publishable config via `php artisan
-    vendor:publish --tag=claimbridge-config`.
+vendor:publish --tag=claimbridge-config`.
   - `ClaimBridge` facade over the client singleton
     (`ClaimBridge::hastaKabul(...)`, `hizmetKayit(...)`,
     `faturaKayit(...)`, `call(...)`).
@@ -42,6 +56,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [0.4.0] — 2026-11-19
 
 ### Added
+
 - **`SandboxHttpTransport`** (PSR-18): session-aware HTTP transport for the
   sandbox's session-based service (sandbox v0.5.0+) — lazily creates a
   session, routes calls through `POST /sessions/:id/call`, wraps network/HTTP
@@ -59,6 +74,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [0.3.0] — 2026-11-19
 
 ### Added
+
 - **Enum validation**: enum-bound fields (7 on `ProvizyonGirisDVO` alone; 23
   enums in the bundle) are validated against the guide-verified code lists —
   invalid values fail fast with `PayloadEnumException` (`fieldPath` + `enumId`)
@@ -73,6 +89,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [0.2.0] — 2026-11-19
 
 ### Added
+
 - Exception hierarchy: `ClaimBridgeException` marker interface;
   `PayloadValidationException`, `TransportException` and
   `UnexpectedResultException` implement it. SANDBOX_* result codes remain
@@ -88,6 +105,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [0.1.0] — 2026-11-19
 
 ### Added
+
 - Contract layer: pinned spec bundle (v0.4.0) loading, DVO required-field
   payload validation (client-side fail-fast, `missingFieldPath` semantics,
   linked-takip `hastaTCKimlikNo` exception).
