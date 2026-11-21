@@ -17,6 +17,12 @@ jobs:
           coverage: none
       - name: Install dependencies
         run: composer install --prefer-dist --no-interaction --no-progress
+      - name: Sync the generated DTO package
+        run: node scripts/sync-dto.mjs
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Regenerate the autoloader
+        run: composer dump-autoload --quiet
       - name: Code style (Pint)
         run: vendor/bin/pint --test
       - name: Static analysis (PHPStan)
@@ -37,6 +43,12 @@ jobs:
           node-version: 22
       - name: Install client dependencies
         run: composer install --prefer-dist --no-interaction --no-progress
+      - name: Sync the generated DTO package
+        run: node scripts/sync-dto.mjs
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Regenerate the autoloader
+        run: composer dump-autoload --quiet
       - name: Clone and install the sandbox
         run: |
           git clone --depth 1 https://github.com/kefyusuf/claimbridge-sandbox.git /tmp/sandbox
