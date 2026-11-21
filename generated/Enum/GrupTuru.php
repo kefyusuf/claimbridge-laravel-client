@@ -11,8 +11,8 @@ namespace ClaimBridge\Medula\Enum;
  */
 enum GrupTuru: string
 {
-    case Ayaktan = 'A'; // Ayaktan
-    case Yatarak = 'Y'; // Yatarak
-    case Gunubirlik = 'G'; // Gunubirlik
-    case Diger = 'D'; // Diger
+    case Ayaktan = "A"; // Ayaktan
+    case Yatarak = "Y"; // Yatarak
+    case Gunubirlik = "G"; // Gunubirlik
+    case Diger = "D"; // Diger
 }

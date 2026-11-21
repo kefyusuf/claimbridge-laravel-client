@@ -14,24 +14,24 @@ use ClaimBridge\Medula\Enum\GrupTuru;
 final class EvrakKesintiGirisDVO
 {
     public function __construct(
-        /** Document reference number (s.291). */
-        public readonly ?int $evrakReferansNo = null,
-        /** Code of the calling facility (s.291). */
-        public readonly ?int $tesisKodu = null,
-        /** A = Ayaktan, Y = Yatarak, G = Günübirlik, D = Diğer (s.291). */
-        public readonly ?GrupTuru $grupTuru = null,
-        /** Group code; values come from the evrakTakipGrupKodlariSorgu method (s.291). */
-        public readonly ?int $grupKodu = null,
+    /** Document reference number (s.291). */
+    public readonly ?int $evrakReferansNo = null,
+    /** Code of the calling facility (s.291). */
+    public readonly ?int $tesisKodu = null,
+    /** A = Ayaktan, Y = Yatarak, G = Günübirlik, D = Diğer (s.291). */
+    public readonly ?GrupTuru $grupTuru = null,
+    /** Group code; values come from the evrakTakipGrupKodlariSorgu method (s.291). */
+    public readonly ?int $grupKodu = null,
     ) {}
 
     /** @param array<string, mixed> $data */
     public static function fromArray(array $data): self
     {
         return new self(
-            isset($data['evrakReferansNo']) && is_numeric($data['evrakReferansNo']) ? (int) $data['evrakReferansNo'] : null,
-            isset($data['tesisKodu']) && is_numeric($data['tesisKodu']) ? (int) $data['tesisKodu'] : null,
-            isset($data['grupTuru']) ? GrupTuru::tryFrom((string) $data['grupTuru']) : null,
-            isset($data['grupKodu']) && is_numeric($data['grupKodu']) ? (int) $data['grupKodu'] : null,
+        isset($data["evrakReferansNo"]) && is_numeric($data["evrakReferansNo"]) ? (int) $data["evrakReferansNo"] : null,
+        isset($data["tesisKodu"]) && is_numeric($data["tesisKodu"]) ? (int) $data["tesisKodu"] : null,
+        isset($data["grupTuru"]) ? GrupTuru::tryFrom((string) $data["grupTuru"]) : null,
+        isset($data["grupKodu"]) && is_numeric($data["grupKodu"]) ? (int) $data["grupKodu"] : null,
         );
     }
 
@@ -39,10 +39,10 @@ final class EvrakKesintiGirisDVO
     public function toArray(): array
     {
         return [
-            'evrakReferansNo' => $this->evrakReferansNo,
-            'tesisKodu' => $this->tesisKodu,
-            'grupTuru' => $this->grupTuru !== null ? $this->grupTuru->value : null,
-            'grupKodu' => $this->grupKodu,
+        "evrakReferansNo" => $this->evrakReferansNo,
+        "tesisKodu" => $this->tesisKodu,
+        "grupTuru" => $this->grupTuru !== null ? $this->grupTuru->value : null,
+        "grupKodu" => $this->grupKodu,
         ];
     }
 }

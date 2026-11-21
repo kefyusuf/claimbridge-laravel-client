@@ -11,8 +11,8 @@ namespace ClaimBridge\Medula\Enum;
  */
 enum SigortaliTuru: string
 {
-    case Calisan = '1'; // Calisan
-    case Emekli = '2'; // Emekli
-    case SSKKurumPersoneli = '3'; // SSK Kurum Personeli
-    case Diger = '4'; // Diger
+    case Calisan = "1"; // Calisan
+    case Emekli = "2"; // Emekli
+    case SSKKurumPersoneli = "3"; // SSK Kurum Personeli
+    case Diger = "4"; // Diger
 }

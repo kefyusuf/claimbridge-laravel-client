@@ -11,6 +11,6 @@ namespace ClaimBridge\Medula\Enum;
  */
 enum AktifPasif: string
 {
-    case Aktif = 'A'; // Aktif
-    case Pasif = 'P'; // Pasif
+    case Aktif = "A"; // Aktif
+    case Pasif = "P"; // Pasif
 }

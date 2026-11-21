@@ -11,8 +11,8 @@ namespace ClaimBridge\Medula\Enum;
  */
 enum TaniNeden: string
 {
-    case MeslekiHastaligaBagli = '1'; // Mesleki Hastaliga Bagli
-    case MeslekiHastaligaBagliDegil = '2'; // Mesleki Hastaliga Bagli Degil
-    case IsKazasinaBagli = '3'; // Is Kazasina Bagli
-    case IsKazasinaBagliDegil = '4'; // Is Kazasina Bagli Degil
+    case MeslekiHastaligaBagli = "1"; // Mesleki Hastaliga Bagli
+    case MeslekiHastaligaBagliDegil = "2"; // Mesleki Hastaliga Bagli Degil
+    case IsKazasinaBagli = "3"; // Is Kazasina Bagli
+    case IsKazasinaBagliDegil = "4"; // Is Kazasina Bagli Degil
 }

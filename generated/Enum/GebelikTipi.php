@@ -11,6 +11,6 @@ namespace ClaimBridge\Medula\Enum;
  */
 enum GebelikTipi: string
 {
-    case Tekil = '1'; // Tekil
-    case Cogul = '2'; // Cogul
+    case Tekil = "1"; // Tekil
+    case Cogul = "2"; // Cogul
 }

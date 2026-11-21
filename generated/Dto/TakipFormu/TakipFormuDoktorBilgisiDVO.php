@@ -14,21 +14,21 @@ use ClaimBridge\Medula\Enum\EvetHayir;
 final class TakipFormuDoktorBilgisiDVO
 {
     public function __construct(
-        /** Physician registration number (s.318). */
-        public readonly ?string $drTescilNo = null,
-        /** Physician branch code (s.318). */
-        public readonly ?string $drBransKodu = null,
-        /** E/H (s.318). */
-        public readonly ?EvetHayir $dmEgitimiAlmisMi = null,
+    /** Physician registration number (s.318). */
+    public readonly ?string $drTescilNo = null,
+    /** Physician branch code (s.318). */
+    public readonly ?string $drBransKodu = null,
+    /** E/H (s.318). */
+    public readonly ?EvetHayir $dmEgitimiAlmisMi = null,
     ) {}
 
     /** @param array<string, mixed> $data */
     public static function fromArray(array $data): self
     {
         return new self(
-            isset($data['drTescilNo']) && is_scalar($data['drTescilNo']) ? (string) $data['drTescilNo'] : null,
-            isset($data['drBransKodu']) && is_scalar($data['drBransKodu']) ? (string) $data['drBransKodu'] : null,
-            isset($data['dmEgitimiAlmisMi']) ? EvetHayir::tryFrom((string) $data['dmEgitimiAlmisMi']) : null,
+        isset($data["drTescilNo"]) && is_scalar($data["drTescilNo"]) ? (string) $data["drTescilNo"] : null,
+        isset($data["drBransKodu"]) && is_scalar($data["drBransKodu"]) ? (string) $data["drBransKodu"] : null,
+        isset($data["dmEgitimiAlmisMi"]) ? EvetHayir::tryFrom((string) $data["dmEgitimiAlmisMi"]) : null,
         );
     }
 
@@ -36,9 +36,9 @@ final class TakipFormuDoktorBilgisiDVO
     public function toArray(): array
     {
         return [
-            'drTescilNo' => $this->drTescilNo,
-            'drBransKodu' => $this->drBransKodu,
-            'dmEgitimiAlmisMi' => $this->dmEgitimiAlmisMi !== null ? $this->dmEgitimiAlmisMi->value : null,
+        "drTescilNo" => $this->drTescilNo,
+        "drBransKodu" => $this->drBransKodu,
+        "dmEgitimiAlmisMi" => $this->dmEgitimiAlmisMi !== null ? $this->dmEgitimiAlmisMi->value : null,
         ];
     }
 }

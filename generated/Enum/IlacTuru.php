@@ -11,7 +11,7 @@ namespace ClaimBridge\Medula\Enum;
  */
 enum IlacTuru: string
 {
-    case BarkodluIlac = '1'; // Barkodlu ilac
-    case MajistralIlac = '2'; // Majistral ilac
-    case RadyofarmasotikAjan = '3'; // Radyofarmasotik Ajan
+    case BarkodluIlac = "1"; // Barkodlu ilac
+    case MajistralIlac = "2"; // Majistral ilac
+    case RadyofarmasotikAjan = "3"; // Radyofarmasotik Ajan
 }

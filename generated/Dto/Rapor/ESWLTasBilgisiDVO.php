@@ -14,18 +14,18 @@ use ClaimBridge\Medula\Enum\TasLokalizasyon;
 final class ESWLTasBilgisiDVO
 {
     public function __construct(
-        /** Stone size in millimetres, e.g. "2x5" (s.276). */
-        public readonly ?string $tasBoyutu = null,
-        /** Stone localization; the published list has no code 1 (s.276). */
-        public readonly ?TasLokalizasyon $tasLokalizasyonKodu = null,
+    /** Stone size in millimetres, e.g. "2x5" (s.276). */
+    public readonly ?string $tasBoyutu = null,
+    /** Stone localization; the published list has no code 1 (s.276). */
+    public readonly ?TasLokalizasyon $tasLokalizasyonKodu = null,
     ) {}
 
     /** @param array<string, mixed> $data */
     public static function fromArray(array $data): self
     {
         return new self(
-            isset($data['tasBoyutu']) && is_scalar($data['tasBoyutu']) ? (string) $data['tasBoyutu'] : null,
-            isset($data['tasLokalizasyonKodu']) ? TasLokalizasyon::tryFrom((string) $data['tasLokalizasyonKodu']) : null,
+        isset($data["tasBoyutu"]) && is_scalar($data["tasBoyutu"]) ? (string) $data["tasBoyutu"] : null,
+        isset($data["tasLokalizasyonKodu"]) ? TasLokalizasyon::tryFrom((string) $data["tasLokalizasyonKodu"]) : null,
         );
     }
 
@@ -33,8 +33,8 @@ final class ESWLTasBilgisiDVO
     public function toArray(): array
     {
         return [
-            'tasBoyutu' => $this->tasBoyutu,
-            'tasLokalizasyonKodu' => $this->tasLokalizasyonKodu !== null ? $this->tasLokalizasyonKodu->value : null,
+        "tasBoyutu" => $this->tasBoyutu,
+        "tasLokalizasyonKodu" => $this->tasLokalizasyonKodu !== null ? $this->tasLokalizasyonKodu->value : null,
         ];
     }
 }

@@ -11,6 +11,6 @@ namespace ClaimBridge\Medula\Enum;
  */
 enum AktarmaRapor: string
 {
-    case Evet = '1'; // Evet
-    case Hayir = '2'; // Hayir
+    case Evet = "1"; // Evet
+    case Hayir = "2"; // Hayir
 }

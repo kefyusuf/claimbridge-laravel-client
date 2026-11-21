@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace ClaimBridge\Medula\Dto\YardimciIslemler;
 
+
 /**
  * TaniAraGirisWSDVO — guideVersion 3.1.1, page 299 (4.5 Yardimci Web Servis Metotlari).
  *
@@ -12,18 +13,18 @@ namespace ClaimBridge\Medula\Dto\YardimciIslemler;
 final class TaniAraGirisWSDVO
 {
     public function __construct(
-        /** Code of the calling facility (s.304). */
-        public readonly ?int $saglikTesisKodu = null,
-        /** Diagnosis code to query; partial prefixes allowed, e.g. "A", "A0" (s.304). */
-        public readonly ?string $icd10Kodu = null,
+    /** Code of the calling facility (s.304). */
+    public readonly ?int $saglikTesisKodu = null,
+    /** Diagnosis code to query; partial prefixes allowed, e.g. "A", "A0" (s.304). */
+    public readonly ?string $icd10Kodu = null,
     ) {}
 
     /** @param array<string, mixed> $data */
     public static function fromArray(array $data): self
     {
         return new self(
-            isset($data['saglikTesisKodu']) && is_numeric($data['saglikTesisKodu']) ? (int) $data['saglikTesisKodu'] : null,
-            isset($data['icd10Kodu']) && is_scalar($data['icd10Kodu']) ? (string) $data['icd10Kodu'] : null,
+        isset($data["saglikTesisKodu"]) && is_numeric($data["saglikTesisKodu"]) ? (int) $data["saglikTesisKodu"] : null,
+        isset($data["icd10Kodu"]) && is_scalar($data["icd10Kodu"]) ? (string) $data["icd10Kodu"] : null,
         );
     }
 
@@ -31,8 +32,8 @@ final class TaniAraGirisWSDVO
     public function toArray(): array
     {
         return [
-            'saglikTesisKodu' => $this->saglikTesisKodu,
-            'icd10Kodu' => $this->icd10Kodu,
+        "saglikTesisKodu" => $this->saglikTesisKodu,
+        "icd10Kodu" => $this->icd10Kodu,
         ];
     }
 }

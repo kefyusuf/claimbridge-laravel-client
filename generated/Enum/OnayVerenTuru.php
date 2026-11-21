@@ -11,6 +11,6 @@ namespace ClaimBridge\Medula\Enum;
  */
 enum OnayVerenTuru: string
 {
-    case Doktor = '1'; // Doktor
-    case Bashekim = '2'; // Bashekim
+    case Doktor = "1"; // Doktor
+    case Bashekim = "2"; // Bashekim
 }

@@ -11,6 +11,6 @@ namespace ClaimBridge\Medula\Enum;
  */
 enum CalismaDurumu: string
 {
-    case Calisir = '1'; // Calisir
-    case Kontrol = '2'; // Kontrol
+    case Calisir = "1"; // Calisir
+    case Kontrol = "2"; // Kontrol
 }

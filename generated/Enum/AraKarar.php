@@ -11,8 +11,8 @@ namespace ClaimBridge\Medula\Enum;
  */
 enum AraKarar: string
 {
-    case IlkSevk = 'H'; // Ilk Sevk
-    case AraKararSevk = 'E'; // Ara Karar Sevk
-    case KontrolMuayenesi = 'K'; // Kontrol Muayenesi
-    case YSKAraKarar = 'Y'; // YSK Ara Karar
+    case IlkSevk = "H"; // Ilk Sevk
+    case AraKararSevk = "E"; // Ara Karar Sevk
+    case KontrolMuayenesi = "K"; // Kontrol Muayenesi
+    case YSKAraKarar = "Y"; // YSK Ara Karar
 }

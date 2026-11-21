@@ -11,9 +11,9 @@ namespace ClaimBridge\Medula\Enum;
  */
 enum AyniFarkliKesi: string
 {
-    case AyniSeansAyniKesi = '1'; // Ayni seans + ayni kesi
-    case FarkliSeansFarkliKesi = '2'; // Farkli seans + farkli kesi
-    case AyniSeanstaFarkliKesi = '3'; // Ayni seansta + farkli kesi
-    case AyniSeanstaFarkliKesiFarkliKlinikKod = '4'; // Ayni seansta + farkli kesi + farkli klinik kod
-    case AyniSeanstaAyniKesiFarkliKlinikKod = '5'; // Ayni seansta + ayni kesi + farkli klinik kod
+    case AyniSeansAyniKesi = "1"; // Ayni seans + ayni kesi
+    case FarkliSeansFarkliKesi = "2"; // Farkli seans + farkli kesi
+    case AyniSeanstaFarkliKesi = "3"; // Ayni seansta + farkli kesi
+    case AyniSeanstaFarkliKesiFarkliKlinikKod = "4"; // Ayni seansta + farkli kesi + farkli klinik kod
+    case AyniSeanstaAyniKesiFarkliKlinikKod = "5"; // Ayni seansta + ayni kesi + farkli klinik kod
 }

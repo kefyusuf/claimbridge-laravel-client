@@ -11,6 +11,6 @@ namespace ClaimBridge\Medula\Enum;
  */
 enum BobrekTarafi: string
 {
-    case SagBobrek = '1'; // Sag Bobrek
-    case SolBobrek = '2'; // Sol Bobrek
+    case SagBobrek = "1"; // Sag Bobrek
+    case SolBobrek = "2"; // Sol Bobrek
 }

@@ -14,21 +14,21 @@ use ClaimBridge\Medula\Enum\TedaviRaporTuru;
 final class TedaviRaporDVO
 {
     public function __construct(
-        /** Report core; shape Tablo 4.4.1.k (RaporDVO, this registry). */
-        public readonly array $raporDVO = [],
-        /** Treatment procedures; only the object matching tedaviRaporTuru is populated, the rest NULL; item shape Tablo 4.4.1.o (TedaviIslemBilgisiDVO, this registry) (s.262). */
-        public readonly array $islemler = [],
-        /** Nine-value treatment type list (s.262). */
-        public readonly ?TedaviRaporTuru $tedaviRaporTuru = null,
+    /** Report core; shape Tablo 4.4.1.k (RaporDVO, this registry). */
+    public readonly array $raporDVO = [],
+    /** Treatment procedures; only the object matching tedaviRaporTuru is populated, the rest NULL; item shape Tablo 4.4.1.o (TedaviIslemBilgisiDVO, this registry) (s.262). */
+    public readonly array $islemler = [],
+    /** Nine-value treatment type list (s.262). */
+    public readonly ?TedaviRaporTuru $tedaviRaporTuru = null,
     ) {}
 
     /** @param array<string, mixed> $data */
     public static function fromArray(array $data): self
     {
         return new self(
-            isset($data['raporDVO']) && is_array($data['raporDVO']) ? $data['raporDVO'] : [],
-            isset($data['islemler']) && is_array($data['islemler']) ? $data['islemler'] : [],
-            isset($data['tedaviRaporTuru']) ? TedaviRaporTuru::tryFrom((string) $data['tedaviRaporTuru']) : null,
+        isset($data["raporDVO"]) && is_array($data["raporDVO"]) ? $data["raporDVO"] : [],
+        isset($data["islemler"]) && is_array($data["islemler"]) ? $data["islemler"] : [],
+        isset($data["tedaviRaporTuru"]) ? TedaviRaporTuru::tryFrom((string) $data["tedaviRaporTuru"]) : null,
         );
     }
 
@@ -36,9 +36,9 @@ final class TedaviRaporDVO
     public function toArray(): array
     {
         return [
-            'raporDVO' => $this->raporDVO,
-            'islemler' => $this->islemler,
-            'tedaviRaporTuru' => $this->tedaviRaporTuru !== null ? $this->tedaviRaporTuru->value : null,
+        "raporDVO" => $this->raporDVO,
+        "islemler" => $this->islemler,
+        "tedaviRaporTuru" => $this->tedaviRaporTuru !== null ? $this->tedaviRaporTuru->value : null,
         ];
     }
 }

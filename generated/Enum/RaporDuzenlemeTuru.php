@@ -11,6 +11,6 @@ namespace ClaimBridge\Medula\Enum;
  */
 enum RaporDuzenlemeTuru: string
 {
-    case Heyet = '1'; // Heyet
-    case TekHekim = '2'; // Tek Hekim
+    case Heyet = "1"; // Heyet
+    case TekHekim = "2"; // Tek Hekim
 }

@@ -11,7 +11,7 @@ namespace ClaimBridge\Medula\Enum;
  */
 enum MalzemeTuru: string
 {
-    case SUTKodlu = '1'; // SUT kodlu
-    case EmekliSandigiProtokolKodlu = '2'; // Emekli Sandigi Protokol kodlu
-    case KodsuzMalzeme = '3'; // Kodsuz malzeme
+    case SUTKodlu = "1"; // SUT kodlu
+    case EmekliSandigiProtokolKodlu = "2"; // Emekli Sandigi Protokol kodlu
+    case KodsuzMalzeme = "3"; // Kodsuz malzeme
 }

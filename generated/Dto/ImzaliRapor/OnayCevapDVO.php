@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace ClaimBridge\Medula\Dto\ImzaliRapor;
 
+
 /**
  * OnayCevapDVO — guideVersion 3.1.1, page 336 (4.6 E-İmzalı Rapor Islemleri Metotlari).
  *
@@ -12,24 +13,24 @@ namespace ClaimBridge\Medula\Dto\ImzaliRapor;
 final class OnayCevapDVO
 {
     public function __construct(
-        /** System-generated unique reference (s.348). */
-        public readonly ?string $onayIslemReferans = null,
-        /** Result code; "0000" means success (s.348). */
-        public readonly ?string $sonucKodu = null,
-        /** Result description (s.349). */
-        public readonly ?string $sonucMesaji = null,
-        /** Warning message (s.349). */
-        public readonly ?string $uyariMesaji = null,
+    /** System-generated unique reference (s.348). */
+    public readonly ?string $onayIslemReferans = null,
+    /** Result code; "0000" means success (s.348). */
+    public readonly ?string $sonucKodu = null,
+    /** Result description (s.349). */
+    public readonly ?string $sonucMesaji = null,
+    /** Warning message (s.349). */
+    public readonly ?string $uyariMesaji = null,
     ) {}
 
     /** @param array<string, mixed> $data */
     public static function fromArray(array $data): self
     {
         return new self(
-            isset($data['onayIslemReferans']) && is_scalar($data['onayIslemReferans']) ? (string) $data['onayIslemReferans'] : null,
-            isset($data['sonucKodu']) && is_scalar($data['sonucKodu']) ? (string) $data['sonucKodu'] : null,
-            isset($data['sonucMesaji']) && is_scalar($data['sonucMesaji']) ? (string) $data['sonucMesaji'] : null,
-            isset($data['uyariMesaji']) && is_scalar($data['uyariMesaji']) ? (string) $data['uyariMesaji'] : null,
+        isset($data["onayIslemReferans"]) && is_scalar($data["onayIslemReferans"]) ? (string) $data["onayIslemReferans"] : null,
+        isset($data["sonucKodu"]) && is_scalar($data["sonucKodu"]) ? (string) $data["sonucKodu"] : null,
+        isset($data["sonucMesaji"]) && is_scalar($data["sonucMesaji"]) ? (string) $data["sonucMesaji"] : null,
+        isset($data["uyariMesaji"]) && is_scalar($data["uyariMesaji"]) ? (string) $data["uyariMesaji"] : null,
         );
     }
 
@@ -37,10 +38,10 @@ final class OnayCevapDVO
     public function toArray(): array
     {
         return [
-            'onayIslemReferans' => $this->onayIslemReferans,
-            'sonucKodu' => $this->sonucKodu,
-            'sonucMesaji' => $this->sonucMesaji,
-            'uyariMesaji' => $this->uyariMesaji,
+        "onayIslemReferans" => $this->onayIslemReferans,
+        "sonucKodu" => $this->sonucKodu,
+        "sonucMesaji" => $this->sonucMesaji,
+        "uyariMesaji" => $this->uyariMesaji,
         ];
     }
 }

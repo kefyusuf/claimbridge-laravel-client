@@ -11,8 +11,8 @@ namespace ClaimBridge\Medula\Enum;
  */
 enum Euroscore: string
 {
-    case Yok = '0'; // Yok
-    case DusukRisk = '1'; // Dusuk risk
-    case OrtaRisk = '2'; // Orta risk
-    case YuksekRisk = '3'; // Yuksek risk
+    case Yok = "0"; // Yok
+    case DusukRisk = "1"; // Dusuk risk
+    case OrtaRisk = "2"; // Orta risk
+    case YuksekRisk = "3"; // Yuksek risk
 }

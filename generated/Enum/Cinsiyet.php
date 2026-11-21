@@ -11,6 +11,6 @@ namespace ClaimBridge\Medula\Enum;
  */
 enum Cinsiyet: string
 {
-    case Kiz = 'K'; // Kiz
-    case Erkek = 'E'; // Erkek
+    case Kiz = "K"; // Kiz
+    case Erkek = "E"; // Erkek
 }

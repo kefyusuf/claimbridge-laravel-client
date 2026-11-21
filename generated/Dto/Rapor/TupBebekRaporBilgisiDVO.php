@@ -14,18 +14,18 @@ use ClaimBridge\Medula\Enum\TupBebekTuru;
 final class TupBebekRaporBilgisiDVO
 {
     public function __construct(
-        /** Disease-treatment vs other IVF procedures (s.276). */
-        public readonly ?TupBebekTuru $tupBebekRaporTuru = null,
-        /** SUT procedure code (s.276). */
-        public readonly ?string $butKodu = null,
+    /** Disease-treatment vs other IVF procedures (s.276). */
+    public readonly ?TupBebekTuru $tupBebekRaporTuru = null,
+    /** SUT procedure code (s.276). */
+    public readonly ?string $butKodu = null,
     ) {}
 
     /** @param array<string, mixed> $data */
     public static function fromArray(array $data): self
     {
         return new self(
-            isset($data['tupBebekRaporTuru']) ? TupBebekTuru::tryFrom((string) $data['tupBebekRaporTuru']) : null,
-            isset($data['butKodu']) && is_scalar($data['butKodu']) ? (string) $data['butKodu'] : null,
+        isset($data["tupBebekRaporTuru"]) ? TupBebekTuru::tryFrom((string) $data["tupBebekRaporTuru"]) : null,
+        isset($data["butKodu"]) && is_scalar($data["butKodu"]) ? (string) $data["butKodu"] : null,
         );
     }
 
@@ -33,8 +33,8 @@ final class TupBebekRaporBilgisiDVO
     public function toArray(): array
     {
         return [
-            'tupBebekRaporTuru' => $this->tupBebekRaporTuru !== null ? $this->tupBebekRaporTuru->value : null,
-            'butKodu' => $this->butKodu,
+        "tupBebekRaporTuru" => $this->tupBebekRaporTuru !== null ? $this->tupBebekRaporTuru->value : null,
+        "butKodu" => $this->butKodu,
         ];
     }
 }

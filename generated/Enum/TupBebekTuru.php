@@ -11,6 +11,6 @@ namespace ClaimBridge\Medula\Enum;
  */
 enum TupBebekTuru: string
 {
-    case BirHastaliginTedavisiAmaciylaUygulananTupBebekIslemleri = '1'; // Bir hastaligin tedavisi amaciyla uygulanan tup bebek islemleri
-    case DigerTupBebekTedavisiIslemleri = '2'; // Diger tup bebek tedavisi islemleri
+    case BirHastaliginTedavisiAmaciylaUygulananTupBebekIslemleri = "1"; // Bir hastaligin tedavisi amaciyla uygulanan tup bebek islemleri
+    case DigerTupBebekTedavisiIslemleri = "2"; // Diger tup bebek tedavisi islemleri
 }

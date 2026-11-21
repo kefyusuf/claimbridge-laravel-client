@@ -11,8 +11,8 @@ namespace ClaimBridge\Medula\Enum;
  */
 enum Aliskanlik: string
 {
-    case Sigara = '1'; // Sigara
-    case Alkol = '2'; // Alkol
-    case CayKahve = '3'; // Cay Kahve
-    case Diger = '4'; // Diger
+    case Sigara = "1"; // Sigara
+    case Alkol = "2"; // Alkol
+    case CayKahve = "3"; // Cay Kahve
+    case Diger = "4"; // Diger
 }

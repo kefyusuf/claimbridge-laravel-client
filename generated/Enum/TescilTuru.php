@@ -11,7 +11,7 @@ namespace ClaimBridge\Medula\Enum;
  */
 enum TescilTuru: string
 {
-    case SeviyesiBelirsiz = '0'; // Seviyesi Belirsiz
-    case Tescilli = '1'; // Tescilli
-    case GeciciTescilli = '2'; // Gecici Tescilli
+    case SeviyesiBelirsiz = "0"; // Seviyesi Belirsiz
+    case Tescilli = "1"; // Tescilli
+    case GeciciTescilli = "2"; // Gecici Tescilli
 }

@@ -11,6 +11,6 @@ namespace ClaimBridge\Medula\Enum;
  */
 enum DoktorPersonelTipi: string
 {
-    case Hekim = '1'; // Hekim
-    case DisHekimi = '2'; // Dis Hekimi
+    case Hekim = "1"; // Hekim
+    case DisHekimi = "2"; // Dis Hekimi
 }

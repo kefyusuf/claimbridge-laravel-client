@@ -14,27 +14,27 @@ use ClaimBridge\Medula\Enum\SutHizmetTuru;
 final class SutFiyatDVO
 {
     public function __construct(
-        /** SUT procedure code (s.298). */
-        public readonly ?string $sutKodu = null,
-        /** SUT code name (s.298). */
-        public readonly ?string $adi = null,
-        /** Price at the queried date — the guide types this String despite being a price (s.298). */
-        public readonly ?string $fiyat = null,
-        /** Ten-value service-type list (s.298). */
-        public readonly ?SutHizmetTuru $turu = null,
-        /** Validity date (s.298). */
-        public readonly ?string $gecerlilikTarihi = null,
+    /** SUT procedure code (s.298). */
+    public readonly ?string $sutKodu = null,
+    /** SUT code name (s.298). */
+    public readonly ?string $adi = null,
+    /** Price at the queried date — the guide types this String despite being a price (s.298). */
+    public readonly ?string $fiyat = null,
+    /** Ten-value service-type list (s.298). */
+    public readonly ?SutHizmetTuru $turu = null,
+    /** Validity date (s.298). */
+    public readonly ?string $gecerlilikTarihi = null,
     ) {}
 
     /** @param array<string, mixed> $data */
     public static function fromArray(array $data): self
     {
         return new self(
-            isset($data['sutKodu']) && is_scalar($data['sutKodu']) ? (string) $data['sutKodu'] : null,
-            isset($data['adi']) && is_scalar($data['adi']) ? (string) $data['adi'] : null,
-            isset($data['fiyat']) && is_scalar($data['fiyat']) ? (string) $data['fiyat'] : null,
-            isset($data['turu']) ? SutHizmetTuru::tryFrom((string) $data['turu']) : null,
-            isset($data['gecerlilikTarihi']) && is_scalar($data['gecerlilikTarihi']) ? (string) $data['gecerlilikTarihi'] : null,
+        isset($data["sutKodu"]) && is_scalar($data["sutKodu"]) ? (string) $data["sutKodu"] : null,
+        isset($data["adi"]) && is_scalar($data["adi"]) ? (string) $data["adi"] : null,
+        isset($data["fiyat"]) && is_scalar($data["fiyat"]) ? (string) $data["fiyat"] : null,
+        isset($data["turu"]) ? SutHizmetTuru::tryFrom((string) $data["turu"]) : null,
+        isset($data["gecerlilikTarihi"]) && is_scalar($data["gecerlilikTarihi"]) ? (string) $data["gecerlilikTarihi"] : null,
         );
     }
 
@@ -42,11 +42,11 @@ final class SutFiyatDVO
     public function toArray(): array
     {
         return [
-            'sutKodu' => $this->sutKodu,
-            'adi' => $this->adi,
-            'fiyat' => $this->fiyat,
-            'turu' => $this->turu !== null ? $this->turu->value : null,
-            'gecerlilikTarihi' => $this->gecerlilikTarihi,
+        "sutKodu" => $this->sutKodu,
+        "adi" => $this->adi,
+        "fiyat" => $this->fiyat,
+        "turu" => $this->turu !== null ? $this->turu->value : null,
+        "gecerlilikTarihi" => $this->gecerlilikTarihi,
         ];
     }
 }

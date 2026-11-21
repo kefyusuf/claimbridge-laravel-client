@@ -11,7 +11,7 @@ namespace ClaimBridge\Medula\Enum;
  */
 enum AntiGad: string
 {
-    case Pozitif = 'P'; // Pozitif
-    case Negatif = 'N'; // Negatif
-    case Bilinmiyor = 'B'; // Bilinmiyor
+    case Pozitif = "P"; // Pozitif
+    case Negatif = "N"; // Negatif
+    case Bilinmiyor = "B"; // Bilinmiyor
 }

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace ClaimBridge\Medula\Dto\YardimciIslemler;
 
+
 /**
  * KurumSevkTalepNoSorguGirisDVO — guideVersion 3.1.1, page 299 (4.5 Yardimci Web Servis Metotlari).
  *
@@ -12,18 +13,18 @@ namespace ClaimBridge\Medula\Dto\YardimciIslemler;
 final class KurumSevkTalepNoSorguGirisDVO
 {
     public function __construct(
-        /** Citizen ID of the queried person; the guide types it long (s.308). */
-        public readonly ?int $tcKimlikNo = null,
-        /** Facility code — typed String here unlike the Integer elsewhere (s.308). */
-        public readonly ?string $saglikTesisKodu = null,
+    /** Citizen ID of the queried person; the guide types it long (s.308). */
+    public readonly ?int $tcKimlikNo = null,
+    /** Facility code — typed String here unlike the Integer elsewhere (s.308). */
+    public readonly ?string $saglikTesisKodu = null,
     ) {}
 
     /** @param array<string, mixed> $data */
     public static function fromArray(array $data): self
     {
         return new self(
-            isset($data['tcKimlikNo']) && is_numeric($data['tcKimlikNo']) ? (int) $data['tcKimlikNo'] : null,
-            isset($data['saglikTesisKodu']) && is_scalar($data['saglikTesisKodu']) ? (string) $data['saglikTesisKodu'] : null,
+        isset($data["tcKimlikNo"]) && is_numeric($data["tcKimlikNo"]) ? (int) $data["tcKimlikNo"] : null,
+        isset($data["saglikTesisKodu"]) && is_scalar($data["saglikTesisKodu"]) ? (string) $data["saglikTesisKodu"] : null,
         );
     }
 
@@ -31,8 +32,8 @@ final class KurumSevkTalepNoSorguGirisDVO
     public function toArray(): array
     {
         return [
-            'tcKimlikNo' => $this->tcKimlikNo,
-            'saglikTesisKodu' => $this->saglikTesisKodu,
+        "tcKimlikNo" => $this->tcKimlikNo,
+        "saglikTesisKodu" => $this->saglikTesisKodu,
         ];
     }
 }

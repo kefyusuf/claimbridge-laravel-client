@@ -11,6 +11,6 @@ namespace ClaimBridge\Medula\Enum;
  */
 enum AnalikRaporTipi: string
 {
-    case DogumOncesiAnalikRaporu = '1'; // Dogum Oncesi Analik Raporu
-    case DogumSonrasiAnalikRaporu = '2'; // Dogum Sonrasi Analik Raporu
+    case DogumOncesiAnalikRaporu = "1"; // Dogum Oncesi Analik Raporu
+    case DogumSonrasiAnalikRaporu = "2"; // Dogum Sonrasi Analik Raporu
 }

@@ -11,8 +11,8 @@ namespace ClaimBridge\Medula\Enum;
  */
 enum AkutKomplikasyon: string
 {
-    case Yasanmadi = '1'; // Yasanmadi
-    case DKA = '2'; // DKA
-    case HHD = '3'; // HHD
-    case Hipoglisemi = '4'; // Hipoglisemi
+    case Yasanmadi = "1"; // Yasanmadi
+    case DKA = "2"; // DKA
+    case HHD = "3"; // HHD
+    case Hipoglisemi = "4"; // Hipoglisemi
 }

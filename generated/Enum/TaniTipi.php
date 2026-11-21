@@ -11,7 +11,7 @@ namespace ClaimBridge\Medula\Enum;
  */
 enum TaniTipi: string
 {
-    case OnTani = '1'; // On tani
-    case KesinTani = '2'; // Kesin tani
-    case AyiriciTani = '3'; // Ayirici tani
+    case OnTani = "1"; // On tani
+    case KesinTani = "2"; // Kesin tani
+    case AyiriciTani = "3"; // Ayirici tani
 }

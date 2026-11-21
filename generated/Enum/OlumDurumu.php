@@ -11,6 +11,6 @@ namespace ClaimBridge\Medula\Enum;
  */
 enum OlumDurumu: string
 {
-    case Sag = '1'; // Sag
-    case Olu = '2'; // Olu
+    case Sag = "1"; // Sag
+    case Olu = "2"; // Olu
 }

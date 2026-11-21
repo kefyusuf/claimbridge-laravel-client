@@ -11,6 +11,6 @@ namespace ClaimBridge\Medula\Enum;
  */
 enum NuksDurumu: string
 {
-    case NuksVar = '1'; // Nuks Var
-    case NuksYok = '2'; // Nuks Yok
+    case NuksVar = "1"; // Nuks Var
+    case NuksYok = "2"; // Nuks Yok
 }

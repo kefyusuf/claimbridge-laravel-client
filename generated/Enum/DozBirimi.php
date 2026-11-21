@@ -11,15 +11,15 @@ namespace ClaimBridge\Medula\Enum;
  */
 enum DozBirimi: string
 {
-    case Adet = '1'; // Adet
-    case Mililitre = '2'; // Mililitre
-    case Miligram = '3'; // Miligram
-    case Gram = '4'; // Gram
-    case Damla = '5'; // Damla
-    case Unite = '6'; // Unite
-    case Kutu = '7'; // Kutu
-    case Mikrogram = '8'; // Mikrogram
-    case Mikrolitre = '9'; // Mikrolitre
-    case BinUnite = 'A'; // Bin Unite
-    case MilyonUnite = 'B'; // Milyon Unite
+    case Adet = "1"; // Adet
+    case Mililitre = "2"; // Mililitre
+    case Miligram = "3"; // Miligram
+    case Gram = "4"; // Gram
+    case Damla = "5"; // Damla
+    case Unite = "6"; // Unite
+    case Kutu = "7"; // Kutu
+    case Mikrogram = "8"; // Mikrogram
+    case Mikrolitre = "9"; // Mikrolitre
+    case BinUnite = "A"; // Bin Unite
+    case MilyonUnite = "B"; // Milyon Unite
 }

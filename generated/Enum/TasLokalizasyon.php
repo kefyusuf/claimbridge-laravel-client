@@ -11,7 +11,7 @@ namespace ClaimBridge\Medula\Enum;
  */
 enum TasLokalizasyon: string
 {
-    case AltUreter = '2'; // Alt Ureter
-    case UstUreter = '3'; // Ust Ureter
-    case Bobrek = '4'; // Bobrek
+    case AltUreter = "2"; // Alt Ureter
+    case UstUreter = "3"; // Ust Ureter
+    case Bobrek = "4"; // Bobrek
 }

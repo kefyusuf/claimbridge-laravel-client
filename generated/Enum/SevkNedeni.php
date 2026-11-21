@@ -11,7 +11,7 @@ namespace ClaimBridge\Medula\Enum;
  */
 enum SevkNedeni: string
 {
-    case IlkSevk = '1'; // Ilk Sevk
-    case AraKontrol = '2'; // Ara Kontrol
-    case KontrolMuayenesi = '3'; // Kontrol Muayenesi
+    case IlkSevk = "1"; // Ilk Sevk
+    case AraKontrol = "2"; // Ara Kontrol
+    case KontrolMuayenesi = "3"; // Kontrol Muayenesi
 }

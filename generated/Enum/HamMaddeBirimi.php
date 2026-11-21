@@ -11,6 +11,6 @@ namespace ClaimBridge\Medula\Enum;
  */
 enum HamMaddeBirimi: string
 {
-    case Gram = '1'; // Gram
-    case Miligram = '2'; // Miligram
+    case Gram = "1"; // Gram
+    case Miligram = "2"; // Miligram
 }

@@ -11,7 +11,7 @@ namespace ClaimBridge\Medula\Enum;
  */
 enum NorSezFor: string
 {
-    case Normal = '1'; // Normal
-    case Sezeryan = '2'; // Sezeryan
-    case Forsebs = '3'; // Forsebs
+    case Normal = "1"; // Normal
+    case Sezeryan = "2"; // Sezeryan
+    case Forsebs = "3"; // Forsebs
 }

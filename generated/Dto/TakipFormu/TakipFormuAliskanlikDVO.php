@@ -14,15 +14,15 @@ use ClaimBridge\Medula\Enum\Aliskanlik;
 final class TakipFormuAliskanlikDVO
 {
     public function __construct(
-        /** Four-value habit list (s.319). */
-        public readonly ?Aliskanlik $aliskanlik = null,
+    /** Four-value habit list (s.319). */
+    public readonly ?Aliskanlik $aliskanlik = null,
     ) {}
 
     /** @param array<string, mixed> $data */
     public static function fromArray(array $data): self
     {
         return new self(
-            isset($data['aliskanlik']) ? Aliskanlik::tryFrom((string) $data['aliskanlik']) : null,
+        isset($data["aliskanlik"]) ? Aliskanlik::tryFrom((string) $data["aliskanlik"]) : null,
         );
     }
 
@@ -30,7 +30,7 @@ final class TakipFormuAliskanlikDVO
     public function toArray(): array
     {
         return [
-            'aliskanlik' => $this->aliskanlik !== null ? $this->aliskanlik->value : null,
+        "aliskanlik" => $this->aliskanlik !== null ? $this->aliskanlik->value : null,
         ];
     }
 }

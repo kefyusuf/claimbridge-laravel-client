@@ -11,6 +11,6 @@ namespace ClaimBridge\Medula\Enum;
  */
 enum EkDurumu: string
 {
-    case Ilk = '1'; // Ilk
-    case Ek = '2'; // Ek
+    case Ilk = "1"; // Ilk
+    case Ek = "2"; // Ek
 }

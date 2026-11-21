@@ -11,6 +11,6 @@ namespace ClaimBridge\Medula\Enum;
  */
 enum MuracaatTuru: string
 {
-    case Kurumu = '1'; // Kurumu
-    case Kisisel = '2'; // Kisisel
+    case Kurumu = "1"; // Kurumu
+    case Kisisel = "2"; // Kisisel
 }

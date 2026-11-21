@@ -14,21 +14,21 @@ use ClaimBridge\Medula\Enum\EvetHayir;
 final class TakipFormuDiabetEgitimiDVO
 {
     public function __construct(
-        /** Individual DM education count (s.319). */
-        public readonly ?int $bireyselEgitimSayisi = null,
-        /** Group DM education count (s.319). */
-        public readonly ?int $grupEgitimSayisi = null,
-        /** E/H (s.319). */
-        public readonly ?EvetHayir $dmEgitimiAlmisMi = null,
+    /** Individual DM education count (s.319). */
+    public readonly ?int $bireyselEgitimSayisi = null,
+    /** Group DM education count (s.319). */
+    public readonly ?int $grupEgitimSayisi = null,
+    /** E/H (s.319). */
+    public readonly ?EvetHayir $dmEgitimiAlmisMi = null,
     ) {}
 
     /** @param array<string, mixed> $data */
     public static function fromArray(array $data): self
     {
         return new self(
-            isset($data['bireyselEgitimSayisi']) && is_numeric($data['bireyselEgitimSayisi']) ? (int) $data['bireyselEgitimSayisi'] : null,
-            isset($data['grupEgitimSayisi']) && is_numeric($data['grupEgitimSayisi']) ? (int) $data['grupEgitimSayisi'] : null,
-            isset($data['dmEgitimiAlmisMi']) ? EvetHayir::tryFrom((string) $data['dmEgitimiAlmisMi']) : null,
+        isset($data["bireyselEgitimSayisi"]) && is_numeric($data["bireyselEgitimSayisi"]) ? (int) $data["bireyselEgitimSayisi"] : null,
+        isset($data["grupEgitimSayisi"]) && is_numeric($data["grupEgitimSayisi"]) ? (int) $data["grupEgitimSayisi"] : null,
+        isset($data["dmEgitimiAlmisMi"]) ? EvetHayir::tryFrom((string) $data["dmEgitimiAlmisMi"]) : null,
         );
     }
 
@@ -36,9 +36,9 @@ final class TakipFormuDiabetEgitimiDVO
     public function toArray(): array
     {
         return [
-            'bireyselEgitimSayisi' => $this->bireyselEgitimSayisi,
-            'grupEgitimSayisi' => $this->grupEgitimSayisi,
-            'dmEgitimiAlmisMi' => $this->dmEgitimiAlmisMi !== null ? $this->dmEgitimiAlmisMi->value : null,
+        "bireyselEgitimSayisi" => $this->bireyselEgitimSayisi,
+        "grupEgitimSayisi" => $this->grupEgitimSayisi,
+        "dmEgitimiAlmisMi" => $this->dmEgitimiAlmisMi !== null ? $this->dmEgitimiAlmisMi->value : null,
         ];
     }
 }

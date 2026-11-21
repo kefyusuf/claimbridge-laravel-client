@@ -11,6 +11,6 @@ namespace ClaimBridge\Medula\Enum;
  */
 enum EvetHayir: string
 {
-    case Evet = 'E'; // Evet
-    case Hayir = 'H'; // Hayir
+    case Evet = "E"; // Evet
+    case Hayir = "H"; // Hayir
 }

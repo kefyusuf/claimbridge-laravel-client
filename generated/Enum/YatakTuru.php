@@ -11,7 +11,7 @@ namespace ClaimBridge\Medula\Enum;
  */
 enum YatakTuru: string
 {
-    case Erisgin = 'E'; // Erisgin
-    case Yenidogan = 'Y'; // Yenidogan
-    case Palyatif = 'P'; // Palyatif
+    case Erisgin = "E"; // Erisgin
+    case Yenidogan = "Y"; // Yenidogan
+    case Palyatif = "P"; // Palyatif
 }

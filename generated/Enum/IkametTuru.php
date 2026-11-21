@@ -11,10 +11,10 @@ namespace ClaimBridge\Medula\Enum;
  */
 enum IkametTuru: string
 {
-    case IlMerkezi = '1'; // Il Merkezi
-    case IlceMerkezi = '2'; // Ilce Merkezi
-    case Belde = '3'; // Belde
-    case Koy = '4'; // Koy
-    case Mezra = '5'; // Mezra
-    case Diger = '6'; // Diger
+    case IlMerkezi = "1"; // Il Merkezi
+    case IlceMerkezi = "2"; // Ilce Merkezi
+    case Belde = "3"; // Belde
+    case Koy = "4"; // Koy
+    case Mezra = "5"; // Mezra
+    case Diger = "6"; // Diger
 }

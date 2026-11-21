@@ -11,6 +11,6 @@ namespace ClaimBridge\Medula\Enum;
  */
 enum BasvuruSekli: string
 {
-    case Kurum = '1'; // Kurum
-    case Kisisel = '2'; // Kisisel
+    case Kurum = "1"; // Kurum
+    case Kisisel = "2"; // Kisisel
 }

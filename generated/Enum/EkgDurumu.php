@@ -11,7 +11,7 @@ namespace ClaimBridge\Medula\Enum;
  */
 enum EkgDurumu: string
 {
-    case Normal = '1'; // Normal
-    case Patolojik = '2'; // Patolojik
-    case Bilinmiyor = '3'; // Bilinmiyor
+    case Normal = "1"; // Normal
+    case Patolojik = "2"; // Patolojik
+    case Bilinmiyor = "3"; // Bilinmiyor
 }

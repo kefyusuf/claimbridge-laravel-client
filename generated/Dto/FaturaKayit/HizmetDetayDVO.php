@@ -14,24 +14,24 @@ use ClaimBridge\Medula\Enum\TaburcuKodu;
 final class HizmetDetayDVO
 {
     public function __construct(
-        /** Description of the service provided by the institution (s.241). */
-        public readonly ?string $aciklama = null,
-        /** Protocol number assigned by the institution (s.241). */
-        public readonly ?string $protokolNo = null,
-        /** Discharge code (s.241-242); codes 1-13 in the taburcu-kodu registry enum. */
-        public readonly ?TaburcuKodu $taburcuKodu = null,
-        /** Tracking number (s.242). */
-        public readonly ?string $takipNo = null,
+    /** Description of the service provided by the institution (s.241). */
+    public readonly ?string $aciklama = null,
+    /** Protocol number assigned by the institution (s.241). */
+    public readonly ?string $protokolNo = null,
+    /** Discharge code (s.241-242); codes 1-13 in the taburcu-kodu registry enum. */
+    public readonly ?TaburcuKodu $taburcuKodu = null,
+    /** Tracking number (s.242). */
+    public readonly ?string $takipNo = null,
     ) {}
 
     /** @param array<string, mixed> $data */
     public static function fromArray(array $data): self
     {
         return new self(
-            isset($data['aciklama']) && is_scalar($data['aciklama']) ? (string) $data['aciklama'] : null,
-            isset($data['protokolNo']) && is_scalar($data['protokolNo']) ? (string) $data['protokolNo'] : null,
-            isset($data['taburcuKodu']) ? TaburcuKodu::tryFrom((string) $data['taburcuKodu']) : null,
-            isset($data['takipNo']) && is_scalar($data['takipNo']) ? (string) $data['takipNo'] : null,
+        isset($data["aciklama"]) && is_scalar($data["aciklama"]) ? (string) $data["aciklama"] : null,
+        isset($data["protokolNo"]) && is_scalar($data["protokolNo"]) ? (string) $data["protokolNo"] : null,
+        isset($data["taburcuKodu"]) ? TaburcuKodu::tryFrom((string) $data["taburcuKodu"]) : null,
+        isset($data["takipNo"]) && is_scalar($data["takipNo"]) ? (string) $data["takipNo"] : null,
         );
     }
 
@@ -39,10 +39,10 @@ final class HizmetDetayDVO
     public function toArray(): array
     {
         return [
-            'aciklama' => $this->aciklama,
-            'protokolNo' => $this->protokolNo,
-            'taburcuKodu' => $this->taburcuKodu !== null ? $this->taburcuKodu->value : null,
-            'takipNo' => $this->takipNo,
+        "aciklama" => $this->aciklama,
+        "protokolNo" => $this->protokolNo,
+        "taburcuKodu" => $this->taburcuKodu !== null ? $this->taburcuKodu->value : null,
+        "takipNo" => $this->takipNo,
         ];
     }
 }

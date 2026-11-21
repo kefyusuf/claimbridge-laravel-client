@@ -11,12 +11,12 @@ namespace ClaimBridge\Medula\Enum;
  */
 enum OdemeSorguDurum: string
 {
-    case IlkKayit = '0'; // Ilk Kayit
-    case Hatasiz = '1'; // Hatasiz
-    case Hatali = '2'; // Hatali
-    case Faturalandi = '3'; // Faturalandi
-    case DonemSonlandirildi = '4'; // Donem Sonlandirildi
-    case Incelendi = '5'; // Incelendi
-    case ItirazIncelendi = '6'; // Itiraz Incelendi
-    case OnlineDigerIslemTalep = 'X'; // Online diger islem talep
+    case IlkKayit = "0"; // Ilk Kayit
+    case Hatasiz = "1"; // Hatasiz
+    case Hatali = "2"; // Hatali
+    case Faturalandi = "3"; // Faturalandi
+    case DonemSonlandirildi = "4"; // Donem Sonlandirildi
+    case Incelendi = "5"; // Incelendi
+    case ItirazIncelendi = "6"; // Itiraz Incelendi
+    case OnlineDigerIslemTalep = "X"; // Online diger islem talep
 }

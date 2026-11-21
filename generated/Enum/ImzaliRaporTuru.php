@@ -11,10 +11,10 @@ namespace ClaimBridge\Medula\Enum;
  */
 enum ImzaliRaporTuru: string
 {
-    case TedaviRaporu = '1'; // Tedavi Raporu
-    case IsGoremezlik = '2'; // Is Goremezlik
-    case Maluliyet = '3'; // Maluliyet
-    case Engellilik = '4'; // Engellilik
-    case TibbiGereklilik = '5'; // Tibbi Gereklilik
-    case Ilac = '10'; // Ilac
+    case TedaviRaporu = "1"; // Tedavi Raporu
+    case IsGoremezlik = "2"; // Is Goremezlik
+    case Maluliyet = "3"; // Maluliyet
+    case Engellilik = "4"; // Engellilik
+    case TibbiGereklilik = "5"; // Tibbi Gereklilik
+    case Ilac = "10"; // Ilac
 }

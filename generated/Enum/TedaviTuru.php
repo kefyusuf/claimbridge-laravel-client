@@ -11,7 +11,7 @@ namespace ClaimBridge\Medula\Enum;
  */
 enum TedaviTuru: string
 {
-    case AyaktaTedavi = 'A'; // Ayakta Tedavi
-    case YatarakTedavi = 'Y'; // Yatarak Tedavi
-    case GunubirlikTedavi = 'G'; // Gunubirlik Tedavi
+    case AyaktaTedavi = "A"; // Ayakta Tedavi
+    case YatarakTedavi = "Y"; // Yatarak Tedavi
+    case GunubirlikTedavi = "G"; // Gunubirlik Tedavi
 }

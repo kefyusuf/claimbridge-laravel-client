@@ -11,7 +11,7 @@ namespace ClaimBridge\Medula\Enum;
  */
 enum OdenmeDurumu: string
 {
-    case Odenir = '1'; // Odenir
-    case RaporlaOdenir = '2'; // Raporla Odenir
-    case Odenmez = '3'; // Odenmez
+    case Odenir = "1"; // Odenir
+    case RaporlaOdenir = "2"; // Raporla Odenir
+    case Odenmez = "3"; // Odenmez
 }

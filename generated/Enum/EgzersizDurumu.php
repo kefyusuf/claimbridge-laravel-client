@@ -11,11 +11,11 @@ namespace ClaimBridge\Medula\Enum;
  */
 enum EgzersizDurumu: string
 {
-    case OnerilmisDuzenliYapiyor = '1'; // Onerilmis -> duzenli yapiyor
-    case OnerilmisDuzensizYapiyor = '2'; // Onerilmis -> duzensiz yapiyor
-    case OnerilmisYapmiyor = '3'; // Onerilmis -> yapmiyor
-    case OnerilmisUygunHastaDegil = '4'; // Onerilmis -> uygun hasta degil
-    case OnerilmisBilinmiyor = '5'; // Onerilmis -> Bilinmiyor
-    case Onerilmemis = '6'; // Onerilmemis
-    case Bilinmiyor = '7'; // Bilinmiyor
+    case OnerilmisDuzenliYapiyor = "1"; // Onerilmis -> duzenli yapiyor
+    case OnerilmisDuzensizYapiyor = "2"; // Onerilmis -> duzensiz yapiyor
+    case OnerilmisYapmiyor = "3"; // Onerilmis -> yapmiyor
+    case OnerilmisUygunHastaDegil = "4"; // Onerilmis -> uygun hasta degil
+    case OnerilmisBilinmiyor = "5"; // Onerilmis -> Bilinmiyor
+    case Onerilmemis = "6"; // Onerilmemis
+    case Bilinmiyor = "7"; // Bilinmiyor
 }

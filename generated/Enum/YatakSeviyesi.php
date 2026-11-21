@@ -11,7 +11,7 @@ namespace ClaimBridge\Medula\Enum;
  */
 enum YatakSeviyesi: string
 {
-    case Code_1BasamakYogumBakim = '1'; // 1. Basamak Yogum Bakim
-    case Code_2BasamakYogumBakim = '2'; // 2. Basamak Yogum Bakim
-    case Code_3BasamakYogumBakim = '3'; // 3. Basamak Yogum Bakim
+    case Code_1BasamakYogumBakim = "1"; // 1. Basamak Yogum Bakim
+    case Code_2BasamakYogumBakim = "2"; // 2. Basamak Yogum Bakim
+    case Code_3BasamakYogumBakim = "3"; // 3. Basamak Yogum Bakim
 }

@@ -11,5 +11,5 @@ namespace ClaimBridge\Medula\Enum;
  */
 enum SonucKodu: string
 {
-    case IslemBasarili = '0000'; // Islem Basarili
+    case IslemBasarili = "0000"; // Islem Basarili
 }

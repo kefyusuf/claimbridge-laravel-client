@@ -11,7 +11,7 @@ namespace ClaimBridge\Medula\Enum;
  */
 enum BagimlilikDurumu: string
 {
-    case Bagimsiz = '1'; // Bagimsiz
-    case KismiBagimli = '2'; // Kismi Bagimli
-    case TamBagimli = '3'; // Tam Bagimli
+    case Bagimsiz = "1"; // Bagimsiz
+    case KismiBagimli = "2"; // Kismi Bagimli
+    case TamBagimli = "3"; // Tam Bagimli
 }

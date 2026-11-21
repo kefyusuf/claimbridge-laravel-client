@@ -11,7 +11,7 @@ namespace ClaimBridge\Medula\Enum;
  */
 enum MaluliyetRaporTuru: string
 {
-    case Maluliyet = '1'; // Maluliyet
-    case MeslekHastaligi = '2'; // Meslek Hastaligi
-    case IsKazasi = '3'; // Is Kazasi
+    case Maluliyet = "1"; // Maluliyet
+    case MeslekHastaligi = "2"; // Meslek Hastaligi
+    case IsKazasi = "3"; // Is Kazasi
 }

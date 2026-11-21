@@ -11,8 +11,8 @@ namespace ClaimBridge\Medula\Enum;
  */
 enum YatisDevamDurumu: string
 {
-    case YatisYok = '1'; // Yatis Yok
-    case YatisDevamEdiyor = '2'; // Yatis Devam Ediyor
-    case YatisVarTaburcuOlmus = '3'; // Yatis Var, Taburcu Olmus
-    case Karma = '4'; // Karma
+    case YatisYok = "1"; // Yatis Yok
+    case YatisDevamEdiyor = "2"; // Yatis Devam Ediyor
+    case YatisVarTaburcuOlmus = "3"; // Yatis Var, Taburcu Olmus
+    case Karma = "4"; // Karma
 }

@@ -11,7 +11,7 @@ namespace ClaimBridge\Medula\Enum;
  */
 enum AmbalajTuru: string
 {
-    case EczaSiseleri = '1'; // Ecza Siseleri
-    case MerhemKutulari = '2'; // Merhem Kutulari
-    case KilitliTorbalar = '3'; // Kilitli Torbalar
+    case EczaSiseleri = "1"; // Ecza Siseleri
+    case MerhemKutulari = "2"; // Merhem Kutulari
+    case KilitliTorbalar = "3"; // Kilitli Torbalar
 }

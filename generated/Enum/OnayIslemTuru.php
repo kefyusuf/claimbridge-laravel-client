@@ -11,8 +11,8 @@ namespace ClaimBridge\Medula\Enum;
  */
 enum OnayIslemTuru: string
 {
-    case Rapor = '1'; // Rapor
-    case MutatDisiRaporu = '2'; // Mutat disi raporu
-    case SevkBildirim = '3'; // Sevk Bildirim
-    case SevkKayit = '4'; // Sevk Kayit
+    case Rapor = "1"; // Rapor
+    case MutatDisiRaporu = "2"; // Mutat disi raporu
+    case SevkBildirim = "3"; // Sevk Bildirim
+    case SevkKayit = "4"; // Sevk Kayit
 }

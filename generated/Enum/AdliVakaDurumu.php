@@ -11,7 +11,7 @@ namespace ClaimBridge\Medula\Enum;
  */
 enum AdliVakaDurumu: string
 {
-    case AdliVaka = '1'; // Adli Vaka
-    case TrafikKazasi = '2'; // Trafik Kazasi
-    case Yok = '3'; // Yok
+    case AdliVaka = "1"; // Adli Vaka
+    case TrafikKazasi = "2"; // Trafik Kazasi
+    case Yok = "3"; // Yok
 }

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace ClaimBridge\Medula\Dto\HastaKabul;
 
+
 /**
  * ProvizyonDegistirCevapDVO — guideVersion 3.1.1, page 174 (Tablo 4.1.10.b - ProvizyonDegistirCevapDVO).
  *
@@ -12,27 +13,27 @@ namespace ClaimBridge\Medula\Dto\HastaKabul;
 final class ProvizyonDegistirCevapDVO
 {
     public function __construct(
-        /** Tracking number (s.174) */
-        public readonly ?string $takipNo = null,
-        /** New provision type applied (s.174) */
-        public readonly ?string $yeniProvizyonTipi = null,
-        /** Application number (length per the guide is 4) (s.174) */
-        public readonly ?string $hastaBasvuruNo = null,
-        /** Result code; 0000 means success (guide lists N/A length here) (s.174) */
-        public readonly ?string $sonucKodu = null,
-        /** Result explanation (s.174) */
-        public readonly ?string $sonucMesaji = null,
+    /** Tracking number (s.174) */
+    public readonly ?string $takipNo = null,
+    /** New provision type applied (s.174) */
+    public readonly ?string $yeniProvizyonTipi = null,
+    /** Application number (length per the guide is 4) (s.174) */
+    public readonly ?string $hastaBasvuruNo = null,
+    /** Result code; 0000 means success (guide lists N/A length here) (s.174) */
+    public readonly ?string $sonucKodu = null,
+    /** Result explanation (s.174) */
+    public readonly ?string $sonucMesaji = null,
     ) {}
 
     /** @param array<string, mixed> $data */
     public static function fromArray(array $data): self
     {
         return new self(
-            isset($data['takipNo']) && is_scalar($data['takipNo']) ? (string) $data['takipNo'] : null,
-            isset($data['yeniProvizyonTipi']) && is_scalar($data['yeniProvizyonTipi']) ? (string) $data['yeniProvizyonTipi'] : null,
-            isset($data['hastaBasvuruNo']) && is_scalar($data['hastaBasvuruNo']) ? (string) $data['hastaBasvuruNo'] : null,
-            isset($data['sonucKodu']) && is_scalar($data['sonucKodu']) ? (string) $data['sonucKodu'] : null,
-            isset($data['sonucMesaji']) && is_scalar($data['sonucMesaji']) ? (string) $data['sonucMesaji'] : null,
+        isset($data["takipNo"]) && is_scalar($data["takipNo"]) ? (string) $data["takipNo"] : null,
+        isset($data["yeniProvizyonTipi"]) && is_scalar($data["yeniProvizyonTipi"]) ? (string) $data["yeniProvizyonTipi"] : null,
+        isset($data["hastaBasvuruNo"]) && is_scalar($data["hastaBasvuruNo"]) ? (string) $data["hastaBasvuruNo"] : null,
+        isset($data["sonucKodu"]) && is_scalar($data["sonucKodu"]) ? (string) $data["sonucKodu"] : null,
+        isset($data["sonucMesaji"]) && is_scalar($data["sonucMesaji"]) ? (string) $data["sonucMesaji"] : null,
         );
     }
 
@@ -40,11 +41,11 @@ final class ProvizyonDegistirCevapDVO
     public function toArray(): array
     {
         return [
-            'takipNo' => $this->takipNo,
-            'yeniProvizyonTipi' => $this->yeniProvizyonTipi,
-            'hastaBasvuruNo' => $this->hastaBasvuruNo,
-            'sonucKodu' => $this->sonucKodu,
-            'sonucMesaji' => $this->sonucMesaji,
+        "takipNo" => $this->takipNo,
+        "yeniProvizyonTipi" => $this->yeniProvizyonTipi,
+        "hastaBasvuruNo" => $this->hastaBasvuruNo,
+        "sonucKodu" => $this->sonucKodu,
+        "sonucMesaji" => $this->sonucMesaji,
         ];
     }
 }

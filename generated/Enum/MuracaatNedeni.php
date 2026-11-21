@@ -11,7 +11,7 @@ namespace ClaimBridge\Medula\Enum;
  */
 enum MuracaatNedeni: string
 {
-    case IlkRapor = '1'; // Ilk Rapor
-    case AraItiraz = '2'; // Ara itiraz
-    case KontrolMuayanesiYenileme = '3'; // Kontrol Muayanesi / Yenileme
+    case IlkRapor = "1"; // Ilk Rapor
+    case AraItiraz = "2"; // Ara itiraz
+    case KontrolMuayanesiYenileme = "3"; // Kontrol Muayanesi / Yenileme
 }

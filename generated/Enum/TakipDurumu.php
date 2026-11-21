@@ -11,6 +11,6 @@ namespace ClaimBridge\Medula\Enum;
  */
 enum TakipDurumu: string
 {
-    case OdemeSorgusuYapilmadi = '0'; // Odeme sorgusu yapilmadi
-    case OdemeSorgusuYapildi = '1'; // Odeme sorgusu yapildi
+    case OdemeSorgusuYapilmadi = "0"; // Odeme sorgusu yapilmadi
+    case OdemeSorgusuYapildi = "1"; // Odeme sorgusu yapildi
 }

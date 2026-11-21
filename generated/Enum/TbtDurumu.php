@@ -11,10 +11,10 @@ namespace ClaimBridge\Medula\Enum;
  */
 enum TbtDurumu: string
 {
-    case TBTOnerilmisTBTYeUyuyor = '1'; // TBT onerilmis -> TBT'ye uyuyor
-    case TBTOnerilmisAraSiraUyuyor = '2'; // TBT onerilmis -> ara sira uyuyor
-    case TBTOnerilmisHicUyuyor = '3'; // TBT onerilmis -> hic uyuyor
-    case TBTOnerilmisBilinmiyor = '4'; // TBT onerilmis -> Bilinmiyor
-    case TBTOnerilmemis = '5'; // TBT onerilmemis
-    case Bilinmiyor = '6'; // Bilinmiyor
+    case TBTOnerilmisTBTYeUyuyor = "1"; // TBT onerilmis -> TBT'ye uyuyor
+    case TBTOnerilmisAraSiraUyuyor = "2"; // TBT onerilmis -> ara sira uyuyor
+    case TBTOnerilmisHicUyuyor = "3"; // TBT onerilmis -> hic uyuyor
+    case TBTOnerilmisBilinmiyor = "4"; // TBT onerilmis -> Bilinmiyor
+    case TBTOnerilmemis = "5"; // TBT onerilmemis
+    case Bilinmiyor = "6"; // Bilinmiyor
 }

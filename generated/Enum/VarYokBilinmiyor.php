@@ -11,7 +11,7 @@ namespace ClaimBridge\Medula\Enum;
  */
 enum VarYokBilinmiyor: string
 {
-    case Var = 'V'; // Var
-    case Yok = 'Y'; // Yok
-    case Bilinmiyor = 'B'; // Bilinmiyor
+    case Var = "V"; // Var
+    case Yok = "Y"; // Yok
+    case Bilinmiyor = "B"; // Bilinmiyor
 }
