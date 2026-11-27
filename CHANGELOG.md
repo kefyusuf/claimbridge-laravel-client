@@ -5,6 +5,24 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.8.0] — 2026-11-27
+
+### Added
+
+- **Output-DTO e2e tests** (works with sandbox v0.7.1): the sandbox's
+  DVO-driven generic response composition is now proven compatible with
+  the generated output DTO contracts — every HTTP result parses back
+  into its output DVO via `fromArray` (`ProvizyonCevapDVO` with the
+  `takipler` echo composite, `HizmetKayitCevapDVO` with `hataliKayitlar`
+  and the `islemBilgileri` composite, `FaturaCevapDVO` with
+  `faturaTeslimNo`).
+
+### Changed
+
+- **Synced package updated to spec v0.10.0**: `SonucKodu` gained the
+  guide-verified `9000` case (`UyariMesajiIleBasarili`) — the guide's
+  success-with-warning code, not an error (spec pages 103/143).
+
 ## [0.7.0] — 2026-11-21
 
 ### Added
