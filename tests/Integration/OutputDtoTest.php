@@ -100,6 +100,10 @@ final class OutputDtoTest extends TestCase
             'takipNo' => $takipNo,
             'hastaBasvuruNo' => $session->identifiers()['hastaBasvuruNo'] ?? '',
             'tanilar' => [['taniKodu' => 'J06.9', 'taniTipi' => '1']],
+            'ilacBilgileri' => [
+                ['hizmetSunucuRefNo' => 'SYNTHETIC_REF_001', 'barkod' => '8699546010016'],
+                ['hizmetSunucuRefNo' => 'SYNTHETIC_REF_002', 'barkod' => '8699546020013'],
+            ],
             'ktsHbysKodu' => 'SYNTHETIC_HBYS_001',
         ]);
 
@@ -107,11 +111,21 @@ final class OutputDtoTest extends TestCase
 
         $this->assertSame('0000', $dto->sonucKodu);
         $this->assertNotEmpty($dto->takipNo);
-        // Guide composite: per-service rows (IslemBilgileriDVO) — the
-        // sandbox's generic composition ships them empty for now; the
-        // generated islemSiraNo is tracked on the session.
-        $this->assertSame([], $dto->islemBilgileri);
-        $this->assertNotEmpty($session->identifiers()['islemSiraNo'] ?? null);
+        // Guide composite (sandbox v0.7.2): one KayitliIslemBilgisiDVO row
+        // per submitted service line — refNo echoes the caller, each row
+        // carries a freshly generated islemSiraNo.
+        $this->assertCount(2, $dto->islemBilgileri);
+        $row0 = $dto->islemBilgileri[0] ?? null;
+        $row1 = $dto->islemBilgileri[1] ?? null;
+        $this->assertIsArray($row0);
+        $this->assertIsArray($row1);
+        $this->assertSame('SYNTHETIC_REF_001', $row0['hizmetSunucuRefNo'] ?? null);
+        $this->assertNotEmpty($row0['islemSiraNo'] ?? null);
+        // The last generated row value stays on the session state.
+        $this->assertSame(
+            $row1['islemSiraNo'] ?? null,
+            $session->identifiers()['islemSiraNo'] ?? null,
+        );
         // M2 composite: hataliKayitlar is an empty array on success.
         $this->assertSame([], $dto->hataliKayitlar);
     }
