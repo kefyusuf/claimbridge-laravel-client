@@ -5,6 +5,17 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.8.2] — 2026-11-28
+
+### Changed
+
+- **Synced package updated to spec v0.11.0** (code-list visual pass):
+  `IstisnaiHal` gained the four letter codes I/M/B/V (I İş kazası,
+  M Meslek Hastalığı, B Madde Bağımlılığı, V Acil Hal — guide s.158);
+  `DevredilenKurum` is now the numeric-only 31-value list (the letter
+  codes were misattributed there earlier); `ProvizyonGirisDVORules`
+  in: list follows the corrected enum.
+
 ## [0.8.1] — 2026-11-27
 
 ### Changed
