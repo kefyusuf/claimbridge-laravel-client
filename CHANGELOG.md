@@ -5,6 +5,26 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.8.6] — 2026-11-28
+
+### Added
+
+- **L6 rules layer** (`RulesValidator`): an optional payload validator
+  backed by the generated Laravel rule classes — adds the guide's
+  `max:N` lengths and `in:...` membership lists on top of what the
+  default `PayloadValidator` checks, with the same exception contract
+  (`PayloadValidationException`). Opt in via the new fourth constructor
+  argument of `MedulaClient`; the default behaviour is unchanged.
+  Built on a bare Illuminate Validation Factory so the
+  framework-agnostic core stays Laravel-independent.
+
+### Changed
+
+- `composer.json` now requires `illuminate/validation`
+  (`^11.0|^12.0`) — the rules layer runs on it.
+- `PayloadValidatorInterface` extracted; `PayloadValidator` implements
+  it.
+
 ## [0.8.5] — 2026-11-28
 
 ### Added

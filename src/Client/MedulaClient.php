@@ -16,14 +16,17 @@ use Psr\Log\LoggerInterface;
  */
 final class MedulaClient
 {
-    private readonly PayloadValidator $validator;
+    private readonly PayloadValidatorInterface $validator;
 
     public function __construct(
         private readonly Transport $transport,
         private readonly Bundle $bundle,
         private readonly ?LoggerInterface $logger = null,
+        ?PayloadValidatorInterface $validator = null,
     ) {
-        $this->validator = new PayloadValidator($bundle);
+        // Default: the guide-verified DVO contract validator. Opt-in:
+        // the L6 rules layer backed by the generated Laravel rule classes.
+        $this->validator = $validator ?? new PayloadValidator($bundle);
     }
 
     public static function create(Transport $transport, string $bundlePath = __DIR__.'/../../resources/bundle.json'): self
