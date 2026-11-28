@@ -5,6 +5,22 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.8.5] — 2026-11-28
+
+### Added
+
+- **Typed request builders** (client backlog): the session methods
+  (`hastaKabul`, `hizmetKayit`, `faturaKayit`, `call`) now accept the
+  generated input-DVO objects directly — normalized via `toArray()`
+  before validation. Enum-bound fields take the generated enum objects;
+  `toArray` maps them back to guide codes.
+
+### Changed
+
+- **Identifier injection treats explicit NULLs as unset** (DTO `toArray`
+  carries null for every unset field): the session identifiers still
+  fill them — explicit non-null payload values keep winning.
+
 ## [0.8.4] — 2026-11-28
 
 ### Changed

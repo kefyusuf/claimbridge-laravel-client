@@ -41,13 +41,15 @@ final class ClaimSession
     /**
      * Patient admission (hasta-kabul): provizyon girişi.
      *
-     * @param  array<string, mixed>  $payload
+     * @param  array<string, mixed>|object  $payload  a raw payload array
+     *                                                or a generated input-DVO object (normalized
+     *                                                via toArray())
      *
      * @throws PayloadValidationException
      * @throws PayloadEnumException
      * @throws UnexpectedResultException
      */
-    public function hastaKabul(array $payload): CallResult
+    public function hastaKabul(array|object $payload): CallResult
     {
         return $this->call('medula.hastane.hasta-kabul.hasta-kabul', $payload);
     }
@@ -55,13 +57,13 @@ final class ClaimSession
     /**
      * Service registration (hizmet-kayit).
      *
-     * @param  array<string, mixed>  $payload
+     * @param  array<string, mixed>|object  $payload
      *
      * @throws PayloadValidationException
      * @throws PayloadEnumException
      * @throws UnexpectedResultException
      */
-    public function hizmetKayit(array $payload): CallResult
+    public function hizmetKayit(array|object $payload): CallResult
     {
         return $this->call('medula.hastane.hizmet-kayit.hizmet-kayit', $payload);
     }
@@ -69,32 +71,32 @@ final class ClaimSession
     /**
      * Invoice registration (fatura-kayit).
      *
-     * @param  array<string, mixed>  $payload
+     * @param  array<string, mixed>|object  $payload
      *
      * @throws PayloadValidationException
      * @throws PayloadEnumException
      * @throws UnexpectedResultException
      */
-    public function faturaKayit(array $payload): CallResult
+    public function faturaKayit(array|object $payload): CallResult
     {
         return $this->call('medula.hastane.fatura-kayit.fatura-kayit', $payload);
     }
 
     /**
-     * Routes any spec-bundle method: injects session identifiers for
-     * fields the input DVO declares, then delegates to the client.
+     * Routes any spec-bundle method: normalizes generated input-DVO
+     * objects (typed request builders) to arrays, injects session
+     * identifiers for fields the input DVO declares, then delegates to
+     * the client.
      *
-     * @param  array<string, mixed>  $payload
+     * @param  array<string, mixed>|object  $payload
      *
      * @throws PayloadValidationException
      * @throws PayloadEnumException
      * @throws UnexpectedResultException
      */
-    public function call(string $methodId, array $payload): CallResult
+    public function call(string $methodId, array|object $payload): CallResult
     {
-        $payload = $this->injectIdentifiers($methodId, $payload);
-
-        $result = $this->client->call($methodId, $payload);
+        $result = $this->client->call($methodId, $this->injectIdentifiers($methodId, $payload));
 
         if ($result->isSuccess()) {
             $this->adoptIdentifiers($result);
@@ -137,13 +139,17 @@ final class ClaimSession
 
     /**
      * Pre-fills the payload with session identifiers for fields the
-     * method's input DVO declares; explicit payload values win.
+     * method's input DVO declares; explicit non-null payload values win —
+     * explicit NULLs (what every generated DTO carries for unset fields)
+     * count as unset so the identifiers still fill them.
      *
-     * @param  array<string, mixed>  $payload
+     * @param  array<string, mixed>|object  $payload
      * @return array<string, mixed>
      */
-    private function injectIdentifiers(string $methodId, array $payload): array
+    private function injectIdentifiers(string $methodId, array|object $payload): array
     {
+        $payload = $this->normalize($payload);
+
         if ($this->identifiers === []) {
             return $payload;
         }
@@ -154,12 +160,45 @@ final class ClaimSession
         }
 
         foreach ($this->identifiers as $name => $value) {
-            if (in_array($name, $fieldNames, true) && ! array_key_exists($name, $payload)) {
+            if (
+                in_array($name, $fieldNames, true)
+                && (! array_key_exists($name, $payload) || $payload[$name] === null)
+            ) {
                 $payload[$name] = $value;
             }
         }
 
         return $payload;
+    }
+
+    /**
+     * Normalizes a generated input-DVO object (typed request builder)
+     * to its payload array via toArray().
+     *
+     * @param  array<string, mixed>|object  $payload
+     * @return array<string, mixed>
+     */
+    private function normalize(array|object $payload): array
+    {
+        if (is_array($payload)) {
+            return $payload;
+        }
+
+        if (! method_exists($payload, 'toArray')) {
+            throw new \InvalidArgumentException(
+                'payload objects must expose toArray() (a generated input DVO)',
+            );
+        }
+
+        $normalized = $payload->toArray();
+        if (! is_array($normalized)) {
+            throw new \InvalidArgumentException(
+                'payload toArray() must return an array',
+            );
+        }
+
+        /** @var array<string, mixed> $normalized */
+        return $normalized;
     }
 
     /**
