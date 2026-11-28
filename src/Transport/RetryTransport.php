@@ -19,13 +19,13 @@ final class RetryTransport implements Transport
         private readonly int $maxAttempts = 2,
     ) {}
 
-    public function call(string $methodId, array $payload): array
+    public function call(string $methodId, array $payload, ?string $scenarioId = null): array
     {
         $attempt = 0;
         while (true) {
             $attempt++;
             try {
-                return $this->inner->call($methodId, $payload);
+                return $this->inner->call($methodId, $payload, $scenarioId);
             } catch (TransportException $e) {
                 if (! $this->isIdempotent($methodId) || $attempt >= $this->maxAttempts) {
                     throw $e;

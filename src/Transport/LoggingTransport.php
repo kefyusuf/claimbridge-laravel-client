@@ -18,12 +18,13 @@ final class LoggingTransport implements Transport
         private readonly LoggerInterface $logger,
     ) {}
 
-    public function call(string $methodId, array $payload): array
+    public function call(string $methodId, array $payload, ?string $scenarioId = null): array
     {
-        $raw = $this->inner->call($methodId, $payload);
+        $raw = $this->inner->call($methodId, $payload, $scenarioId);
 
         $this->logger->info('claimbridge.transport', [
             'methodId' => $methodId,
+            'scenarioId' => $scenarioId,
             'sonucKodu' => is_string($raw['sonucKodu'] ?? null) ? $raw['sonucKodu'] : null,
         ]);
 
