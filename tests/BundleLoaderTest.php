@@ -15,10 +15,10 @@ final class BundleLoaderTest extends TestCase
     {
         $bundle = BundleLoader::load(__DIR__.'/../resources/bundle.json');
 
-        $this->assertSame('0.11.0', $bundle->specVersion);
+        $this->assertSame('0.12.0', $bundle->specVersion);
         $this->assertCount(9, $bundle->services);
-        $this->assertCount(73, $bundle->methods);
-        $this->assertCount(212, $bundle->dvos);
+        $this->assertCount(77, $bundle->methods);
+        $this->assertCount(221, $bundle->dvos);
         $this->assertCount(81, $bundle->enums);
         $this->assertCount(9, $bundle->scenarios);
     }

@@ -5,6 +5,16 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.8.4] — 2026-11-28
+
+### Changed
+
+- **Synced package + pinned bundle updated to spec v0.12.0** (the final
+  four guide §4.1 methods): 9 new DTO classes (YesilKartli×3,
+  Degistir×4, Mustehaklik×2) and the corresponding rule classes; the
+  validation bundle now carries 77 methods / 221 DVOs; BundleLoader pins
+  track v0.12.0.
+
 ## [0.8.3] — 2026-11-28
 
 ### Added
