@@ -40,15 +40,20 @@ final class SandboxHttpTransport implements Transport
         );
     }
 
-    public function call(string $methodId, array $payload): array
+    public function call(string $methodId, array $payload, ?string $scenarioId = null): array
     {
         if ($this->sessionId === null) {
             $this->createSession();
         }
 
+        $body = ['methodId' => $methodId, 'request' => $payload];
+        if ($scenarioId !== null) {
+            $body['scenarioId'] = $scenarioId;
+        }
+
         return $this->post(
             "/sessions/{$this->sessionId}/call",
-            ['methodId' => $methodId, 'request' => $payload],
+            $body,
         );
     }
 

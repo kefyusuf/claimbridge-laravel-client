@@ -104,6 +104,28 @@ final class ClaimSession
     }
 
     /**
+     * Replays a spec-bundle scenario verbatim on this session. The
+     * replay-echoed identifiers (sandbox v0.7.4+) are adopted even for
+     * the 9000 success-with-warning code — the guide treats 9000 as a
+     * successful operation (spec pages 103/143), so the episode can
+     * continue with the created state.
+     *
+     * @param  array<string, mixed>  $payload
+     *
+     * @throws UnexpectedResultException
+     */
+    public function callScenario(string $methodId, string $scenarioId, array $payload = []): CallResult
+    {
+        $result = $this->client->callScenario($methodId, $scenarioId, $payload);
+
+        if ($result->isSuccess() || $result->sonucKodu === '9000') {
+            $this->adoptIdentifiers($result);
+        }
+
+        return $result;
+    }
+
+    /**
      * Current identifier snapshot (a copy — mutations never leak back).
      *
      * @return array<string, string>

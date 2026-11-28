@@ -85,7 +85,7 @@ final class RecordingTransport implements Transport
      */
     public function __construct(private readonly array $response) {}
 
-    public function call(string $methodId, array $payload): array
+    public function call(string $methodId, array $payload, ?string $scenarioId = null): array
     {
         $this->calls++;
 
@@ -108,7 +108,7 @@ final class FlakyTransport implements Transport
         private readonly bool $alwaysFail = false,
     ) {}
 
-    public function call(string $methodId, array $payload): array
+    public function call(string $methodId, array $payload, ?string $scenarioId = null): array
     {
         $this->calls++;
 

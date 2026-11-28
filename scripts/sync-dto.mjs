@@ -77,6 +77,24 @@ async function main() {
   console.log(
     `synced ${written} generated PHP files from ${SPEC_REPO}@${ref} into generated/`,
   );
+
+  // The pinned spec bundle drives payload validation client-side; it
+  // must track the same ref as the generated package.
+  const bundleEntry = (tree.tree ?? []).find(
+    (e) => e.path === "dist/claimbridge-medula-spec.json",
+  );
+  if (!bundleEntry) {
+    throw new Error(`no dist bundle found at ref ${ref}`);
+  }
+  const bundleBlob = await fetchJson(
+    `https://api.github.com/repos/${SPEC_REPO}/git/blobs/${bundleEntry.sha}`,
+  );
+  const bundle = Buffer.from(bundleBlob.content, "base64").toString("utf8");
+  JSON.parse(bundle); // fail fast on invalid JSON
+  writeFileSync("resources/bundle.json", bundle, "utf8");
+  console.log(
+    `synced resources/bundle.json (spec ${JSON.parse(bundle).specVersion}) from ${SPEC_REPO}@${ref}`,
+  );
 }
 
 main().catch((error) => {

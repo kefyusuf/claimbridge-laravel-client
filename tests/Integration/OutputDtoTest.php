@@ -162,6 +162,31 @@ final class OutputDtoTest extends TestCase
     }
 
     #[Test]
+    public function scenario_replay_over_http_feeds_the_session(): void
+    {
+        $session = $this->session();
+
+        // Under-18 replay: 9000 success-with-warning + echoed takipNo
+        // (guide s.143), adopted by the session.
+        $replay = $session->callScenario(
+            'medula.hastane.hasta-kabul.hasta-kabul',
+            'provizyon-under18-warning',
+        );
+        $this->assertSame('9000', $replay->sonucKodu);
+        $this->assertNotEmpty($session->identifiers()['takipNo'] ?? null);
+
+        // The created takip state serves a follow-up registration.
+        $hizmet = $session->hizmetKayit([
+            'saglikTesisKodu' => 1,
+            'takipNo' => $session->identifiers()['takipNo'],
+            'hastaBasvuruNo' => $session->identifiers()['hastaBasvuruNo'] ?? '',
+            'tanilar' => [['taniKodu' => 'J06.9', 'taniTipi' => '1']],
+            'ktsHbysKodu' => 'SYNTHETIC_HBYS_001',
+        ]);
+        $this->assertSame('0000', $hizmet->sonucKodu);
+    }
+
+    #[Test]
     public function sonuc_kodu_enum_carries_the_9000_warning_code(): void
     {
         // 9000 is the guide's success-with-warning code (spec s.103/143):

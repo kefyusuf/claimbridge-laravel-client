@@ -5,6 +5,26 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.8.3] — 2026-11-28
+
+### Added
+
+- **Scenario replay over the client stack** (tracks sandbox v0.7.4+):
+  `MedulaClient::callScenario(methodId, scenarioId, payload = [])` and
+  `ClaimSession::callScenario(...)` — the scenario contract is replayed
+  verbatim (payload validation is skipped, the replay form is an empty
+  payload) and the replay-echoed identifiers (guide s.143) are adopted
+  by the session, so an under-18 9000 replay can feed follow-up calls.
+
+### Changed
+
+- **`Transport::call` gained an optional `$scenarioId` parameter**
+  (implementations updated accordingly); the sandbox HTTP transport
+  forwards it in the call body.
+- **Pinned bundle resynced to spec v0.11.0** — `sync-dto` now also
+  pulls `resources/bundle.json` alongside the generated package (it had
+  silently stayed at v0.4.0); BundleLoader pins track v0.11.0 counts.
+
 ## [0.8.2] — 2026-11-28
 
 ### Changed

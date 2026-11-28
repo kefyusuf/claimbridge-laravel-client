@@ -95,4 +95,27 @@ final class MedulaClient
 
         return $result;
     }
+
+    /**
+     * Replays a spec-bundle scenario verbatim (sandbox v0.7.4+). The
+     * scenario contract comes from the spec bundle, so payload
+     * validation is deliberately skipped — an empty payload is the
+     * normal replay form.
+     *
+     * @param  array<string, mixed>  $payload
+     *
+     * @throws UnexpectedResultException
+     */
+    public function callScenario(string $methodId, string $scenarioId, array $payload = []): CallResult
+    {
+        $result = CallResult::from($this->transport->call($methodId, $payload, $scenarioId));
+
+        $this->logger?->info('claimbridge.scenario', [
+            'methodId' => $methodId,
+            'scenarioId' => $scenarioId,
+            'sonucKodu' => $result->sonucKodu,
+        ]);
+
+        return $result;
+    }
 }
