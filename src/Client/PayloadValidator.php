@@ -11,7 +11,7 @@ use ClaimBridge\Medula\Spec\Bundle;
  * from the spec bundle, before anything reaches the transport:
  * required fields first, then enum-bound field membership.
  */
-final class PayloadValidator
+final class PayloadValidator implements PayloadValidatorInterface
 {
     public function __construct(private readonly Bundle $bundle) {}
 
